@@ -1,14 +1,13 @@
 <?php
 
 /**
- * PHP example for PAD students.
  * 
- * @author Pieter Leek <p.d.leek@hva.nl>
+ * @author IJB06
  * 
  */
 //Constants to connect with the database
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', 'admin'); // verander dit
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'phpSample');
+define('DB_PASSWORD', 'kGjMtEO06BPiu2u4'); // verander dit
+define('DB_HOST', 'ronpelt.synology.me');
+define('DB_NAME', 'PAD-app');
 

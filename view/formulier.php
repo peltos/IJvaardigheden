@@ -12,26 +12,33 @@
             <h2>Vul dit formulier in</h2>
             <form method="post">
                 <div class="form-group">
-                    <label for="fname">Mijn voornaam</label>
-                    <input type="text" class="form-control" id="fname" name="fname" placeholder="Geef je voornaam">
+                    <label for="email">email</label>
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Geef je voornaam">
                 </div>
                 <div class="form-group">
-                    <label for="lname">Mijn achternaam</label>
-                    <input type="text" class="form-control" id="lname" name="lname" placeholder="Geef je achternaam">
+                    <label for="firstName">firstName</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Geef je achternaam">
                 </div>
                 <div class="form-group">
-                    <label for="address">Straat</label>
-                    <input type="text" class="form-control" id="address" name="address" placeholder="Geef je adres">
+                    <label for="insertion">insertion</label>
+                    <input type="text" class="form-control" id="insertion" name="insertion" placeholder="Geef je adres">
                 </div>      
                 <div class="form-group">
-                    <label for="zipcode">Postcode</label>
-                    <input type="text" class="form-control" id="zipcode" name="zipcode" placeholder="Geef je postcode">
-                </div>          
-
+                    <label for="lastName">lastName</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Geef je postcode">
+                </div>
                 <div class="form-group">
-                    <label for="city">Woonplaats</label>
-                    <input type="text" class="form-control" id="city" name="city" placeholder="Geef je woonplaats">
+                    <label for="password">password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="Geef je woonplaats">
                 </div>        
+                <div class="form-group">
+                    <label for="role">role</label>
+                    <input type="text" class="form-control" id="role" name="role" placeholder="Geef je woonplaats">
+                </div>        
+                <div class="form-group">
+                    <label for="schoolGroup">group</label>
+                    <input type="text" class="form-control" id="schoolGroup" name="schoolGroup" placeholder="Geef je woonplaats">
+                </div>      
 
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>

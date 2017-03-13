@@ -14,7 +14,8 @@ class PostsController {
         // print_r($post); // debug 
         
         //TODO check POST
-        return $this->model->writePost($post['fname'], $post['lname'], $post['address'], $post['zipcode'], $post['city']);
+        return $this->model->writePost($post['email'], $post['firstName'], $post['insertion'], $post['lastName'], $post['password'], $post['role'], $post['schoolGroup']);
+
     }
 
     public function index() {
