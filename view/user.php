@@ -10,11 +10,18 @@
     <body>
        
         <div class="fluid-container">
-            <h2>User list</h2>
-            <?php 
+            <header class="col-xs-12 col-sm-4 col-md-3" style="height: 100vh; background: lightgrey; ">
+                <button>button</button><br>
+                <button>button</button><br>
+                <button>button</button><br>
+                <button>button</button>
+            </header>
+            
+            
+                <?php 
                 foreach($readList as $value) {
                     
-                    echo '<a href="#" class="col-xs-12 col-sm-6 col-md-3">';
+                    echo '<a href="#" class="col-xs-12 col-sm-4 col-md-3">';
                     echo '<p>'.$value['email'].'</p>';
                     echo '<p>'.$value['firstName'].'</p>';
                     echo '<p>';
