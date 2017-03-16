@@ -34,5 +34,9 @@ class ModelFormulier {
             return false;
         }
     }
+    public function readVariable() {
+        $this->database->query('SELECT * FROM schoolGroup');
+        return $this->database->resultset();
+    }
 
 }

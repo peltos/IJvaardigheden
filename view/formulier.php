@@ -47,12 +47,10 @@
                     <label for="city">group</label>
                     <select class="form-control" id="schoolGroup" name="schoolGroup">
                     <?php 
-                        $connection = new PDO('mysql:host=ronpelt.synology.me;dbname=PAD-app;charset=utf8', 'root', 'kGjMtEO06BPiu2u4');
-                        $statement = $connection->query('SELECT * FROM schoolGroup');
-
-                        while($row = $statement->fetch(PDO::FETCH_ASSOC)) {
-                            echo '<option value="'.$row['groupName'].'">'.$row['groupName'].'</option>';
+                        foreach($readList as $value) {
+                            echo '<option value="'.$value['groupName'].'">'.$value['groupName'].'</option>';
                         }
+                        
                     ?>
                     </select>
                 </div>      

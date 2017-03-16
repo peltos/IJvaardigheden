@@ -19,6 +19,8 @@ class PostsController {
     }
 
     public function index() {
+        $readList = $this->model->readVariable();
+//        print_r($readList);
         require_once './view/formulier.php'; 
     }
 
