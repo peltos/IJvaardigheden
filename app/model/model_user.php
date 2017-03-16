@@ -11,7 +11,7 @@
  *
  * @author IJB06
  */
-class ModelFormulier {
+class ModelUser {
 
     private $database;
 
@@ -34,8 +34,8 @@ class ModelFormulier {
             return false;
         }
     }
-    public function readVariable() {
-        $this->database->query('SELECT * FROM schoolGroup');
+    public function readUsers() {
+        $this->database->query('SELECT * FROM user');
         return $this->database->resultset();
     }
 

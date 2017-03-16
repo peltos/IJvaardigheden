@@ -7,7 +7,7 @@
         <link href="view/css/bootstrap.min.css" rel="stylesheet" media="screen">
     </head>
     <body>
-       
+        <a href="admin.php"> admin </a>
         <div class="container">
             <h2>Vul dit formulier in</h2>
             <form method="post">
