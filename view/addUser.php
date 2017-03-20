@@ -12,35 +12,35 @@
             <h2>Vul dit formulier in</h2>
             <form method="post">
                 <div class="form-group">
-                    <label for="fname">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Geef je voornaam">
+                    <label for="fname">*Email</label>
+                    <input type="text" class="form-control" id="email" name="email" >
                 </div>
                 <div class="form-group">
-                    <label for="lname">Voornaam</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Geef je achternaam">
+                    <label for="lname">*Voornaam</label>
+                    <input type="text" class="form-control" id="firstName" name="firstName" >
                 </div>
                 <div class="form-group">
                     <label for="address">Tussenvoegsel</label>
-                    <input type="text" class="form-control" id="insertion" name="insertion" placeholder="Geef je adres">
+                    <input type="text" class="form-control" id="insertion" name="insertion" >
                 </div>      
                 <div class="form-group">
-                    <label for="zipcode">Achternaam</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Geef je postcode">
+                    <label for="zipcode">*Achternaam</label>
+                    <input type="text" class="form-control" id="lastName" name="lastName" >
                 </div>
                 <div class="form-group">
-                    <label for="city">Wachwoord</label>
-                    <input type="password" class="form-control" id="password" name="password" placeholder="Geef je woonplaats">
+                    <label for="city">*Wachwoord</label>
+                    <input type="password" class="form-control" id="password" name="password" >
                 </div>
                 <div class="form-group">
-                    <label for="city">Wachtwoord herhalen</label>
-                    <input type="password" class="form-control" id="password2" name="password2" placeholder="Geef je woonplaats">
+                    <label for="city">*Wachtwoord herhalen</label>
+                    <input type="password" class="form-control" id="password2" name="password2" >
                 </div> 
                 <div class="form-group">
-                    <label for="city">role</label>
+                    <label for="city">*role</label><br>
                     
-                    <input type="radio" class="form-control" id="role0" name="role" value="0" checked> Leerling<br>
-                    <input type="radio" class="form-control" id="role1" name="role" value="1"> Docent<br>
-                    <input type="radio" class="form-control" id="role2" name="role" value="2"> Admin<br>
+                    <input type="radio" id="role0" name="role" value="0" checked> Leerling<br>
+                    <input type="radio" id="role1" name="role" value="1"> Docent<br>
+                    <input type="radio" id="role2" name="role" value="2"> Admin<br>
                 </div>        
                 <br>
                 <div class="form-group">

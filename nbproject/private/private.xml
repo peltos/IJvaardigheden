@@ -3,15 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/PAD/app/controller/controller_addUser.php</file>
-            <file>file:/C:/wamp64/www/PAD/view/css/bootstrap.min.css</file>
-            <file>file:/C:/wamp64/www/PAD/view/addUser.php</file>
-            <file>file:/C:/wamp64/www/PAD/app/model/model_user.php</file>
+            <file>file:/C:/wamp64/www/PAD/editUser.php</file>
+            <file>file:/C:/wamp64/www/PAD/app/controller/controller_edituser.php</file>
             <file>file:/C:/wamp64/www/PAD/app/model/model_addUser.php</file>
             <file>file:/C:/wamp64/www/PAD/view/user.php</file>
             <file>file:/C:/wamp64/www/PAD/index.php</file>
-            <file>file:/C:/wamp64/www/PAD/app/controller/controller_user.php</file>
-            <file>file:/C:/wamp64/www/PAD/view/css/bootstrap.css</file>
+            <file>file:/C:/wamp64/www/PAD/app/model/model_editUser.php</file>
+            <file>file:/C:/wamp64/www/PAD/view/editUser.php</file>
             <file>file:/C:/wamp64/www/PAD/admin.php</file>
         </group>
     </open-files>
