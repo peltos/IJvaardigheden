@@ -11,46 +11,47 @@
        
         <div class="fluid-container">
             <header class="col-xs-12 col-sm-4 col-md-3" style="height: 100vh; background: lightgrey; ">
-                <button>button</button><br>
-                <button>button</button><br>
-                <button>button</button><br>
-                <button>button</button>
+                <a href="addUser.php"> addUser </a>
             </header>
-            
-            
                 <?php 
-                foreach($readList as $value) {
-                    
-                    echo '<a href="#" class="col-xs-12 col-sm-4 col-md-3">';
-                    echo '<p>'.$value['email'].'</p>';
-                    echo '<p>'.$value['firstName'].'</p>';
-                    echo '<p>';
-                    if ($value['insertion'] != null) {
-                        echo $value['insertion'];
+                    foreach($readList as $value) {
+
+                        echo '<a href="#" class="col-xs-12 col-sm-4 col-md-3">';
+                        echo '<p>'.$value['email'].'</p>';
+                        echo '<p>'.$value['firstName'].'</p>';
+                        echo '<p>';
+                        if ($value['insertion'] != null) {
+                            echo $value['insertion'];
+                        }
+                        else{
+                            echo ' - ';
+                        }
+                        echo '</p>';
+                        echo '<p>';
+                        if ($value['role'] == 0) {
+                            echo 'Leerling';
+                        }
+                        else if ($value['role'] == 1){
+                            echo 'Docent';
+                        }
+                        else if ($value['role'] == 2){
+                            echo 'Admin';
+                        }
+                        else {
+                            echo 'Unkown error';
+                        }
+                        echo '</p>';
+                        echo '<p>';
+                        if ($value['schoolGroup'] != null) {
+                            echo $value['schoolGroup'];
+                        }
+                        else{
+                            echo ' - ';
+                        }
+                        echo '</p>';
+                        echo '</a>';
                     }
-                    else{
-                        echo ' - ';
-                    }
-                    echo '</p>';
-                    echo '<p>'.$value['password'].'</p>';
-                    echo '<p>';
-                    if ($value['role'] == 0) {
-                        echo 'Leerling';
-                    }
-                    else if ($value['role'] == 1){
-                        echo 'Docent';
-                    }
-                    else if ($value['role'] == 2){
-                        echo 'Admin';
-                    }
-                    else {
-                        echo 'Unkown error';
-                    }
-                    echo '</p>';
-                    echo '<p>'.$value['schoolGroup'].'</p>';
-                    echo '</a>';
-                }
-            ?>
+                ?>
         </div>
 
         <script src="http://code.jquery.com/jquery.js"></script>
