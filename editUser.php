@@ -7,20 +7,18 @@
  */
 include_once './config/config.php';
 include_once './app/model/database_pdo.php';
-require_once __DIR__.'/app/controller/controller_user.php';
+require_once __DIR__.'/app/controller/controller_editUser.php';
 
 //kijk met welk request type je te maken hebt
-$method = $_SERVER['REQUEST_METHOD'];
+$method = $_SERVER['REQUEST_METHOD']; 
 
 
-
-
- $controller = new PostsController();
+ $controller = new controllerEditUser();
 
 //switch op de http methode 
 switch ($method) {
     case 'GET':
-        $controller->admin();
+        $controller->index();
         break;
 
     case 'PUT':
@@ -28,7 +26,11 @@ switch ($method) {
         break;
 
     case 'POST':   
-        
+        if ($controller->writeForm($_POST)) {
+             require_once __DIR__.'/view/admin.php';
+        } else {
+            require_once __DIR__.'/view/error.php';
+        }
         break;
 
     case 'DELETE':

@@ -1,3 +1,10 @@
+<?php
+// Start the session
+session_start();
+$idUser = $_GET['edit'];
+
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,23 +16,23 @@
     <body>
         <a href="admin.php"> admin </a>
         <div class="container">
-            <h2>Vul dit formulier in</h2>
+            <h2>Vul dit formulier in 2</h2>
             <form method="post">
                 <div class="form-group">
                     <label for="fname">Email</label>
-                    <input type="text" class="form-control" id="email" name="email" placeholder="Geef je voornaam">
+                    <input type="text" class="form-control" id="email" name="email" placeholder="Geef je voornaam" value="<?php echo $_SESSION["email". $idUser] ?>">
                 </div>
                 <div class="form-group">
                     <label for="lname">Voornaam</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Geef je achternaam">
+                    <input type="text" class="form-control" id="firstName" name="firstName" placeholder="Geef je achternaam" value="<?php echo $_SESSION["fName". $idUser] ?>">
                 </div>
                 <div class="form-group">
                     <label for="address">Tussenvoegsel</label>
-                    <input type="text" class="form-control" id="insertion" name="insertion" placeholder="Geef je adres">
+                    <input type="text" class="form-control" id="insertion" name="insertion" placeholder="Geef je adres" value="<?php echo $_SESSION["insertion". $idUser] ?>">
                 </div>      
                 <div class="form-group">
                     <label for="zipcode">Achternaam</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Geef je postcode">
+                    <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Geef je postcode" value="<?php echo $_SESSION["lName". $idUser] ?>">
                 </div>
                 <div class="form-group">
                     <label for="city">Wachwoord</label>
@@ -38,9 +45,10 @@
                 <div class="form-group">
                     <label for="city">role</label>
                     
-                    <input type="radio" class="form-control" id="role0" name="role" value="0" checked> Leerling<br>
-                    <input type="radio" class="form-control" id="role1" name="role" value="1"> Docent<br>
-                    <input type="radio" class="form-control" id="role2" name="role" value="2"> Admin<br>
+                    <input type="radio" class="form-control" id="role0" name="role" value="0" <?php if($_SESSION["role" . $idUser] == 0){echo 'checked';} ?>> Leerling<br>
+                    
+                    <input type="radio" class="form-control" id="role1" name="role" value="1" <?php if($_SESSION["role" . $idUser] == 1){echo 'checked';} ?>> Docent<br>
+                    <input type="radio" class="form-control" id="role2" name="role" value="2" <?php if($_SESSION["role" . $idUser] == 2){echo 'checked';} ?>> Admin<br>
                 </div>        
                 <br>
                 <div class="form-group">
@@ -50,7 +58,6 @@
                         foreach($readList as $value) {
                             echo '<option value="'.$value['schoolGroup'].'">'.$value['schoolGroup'].'</option>';
                         }
-                        
                     ?>
                     </select>
                 </div>      

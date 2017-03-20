@@ -1,3 +1,8 @@
+<?php
+// Start the session
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,19 +18,20 @@
             <header class="col-xs-12 col-sm-4 col-md-3" style="height: 100vh; background: lightgrey; ">
                 <a href="addUser.php"> addUser </a>
             </header>
-                <?php 
+                <?php
+                    $listCount = 0;
                     foreach($readList as $value) {
-
-                        echo '<a href="#" class="col-xs-12 col-sm-4 col-md-3">';
-                        echo '<p>'.$value['email'].'</p>';
-                        echo '<p>'.$value['firstName'].'</p>';
-                        echo '<p>';
+                        echo '<a href="editUser.php?edit='.$listCount.'" class="col-xs-12 col-sm-4 col-md-3">';
+                        echo '<p name="fName '.$listCount.'">'.$value['firstName'].'</p>';
+                        echo '<p name="insertion'.$listCount.'">';
                         if ($value['insertion'] != null) {
                             echo $value['insertion'];
                         }
                         else{
                             echo ' - ';
                         }
+                        echo '<p name="lName'.$listCount.'">'.$value['lastName'].'</p>';
+                        
                         echo '</p>';
                         echo '<p>';
                         if ($value['role'] == 0) {
@@ -50,6 +56,15 @@
                         }
                         echo '</p>';
                         echo '</a>';
+                        
+                        $_SESSION["email" . $listCount] = $value['email'];
+                        $_SESSION["fName" . $listCount] = $value['firstName'];
+                        $_SESSION["insertion" . $listCount] = $value['insertion'];
+                        $_SESSION["lName" . $listCount] = $value['lastName'];
+                        $_SESSION["role" . $listCount] = $value['role'];
+                        $_SESSION["schoolGroup" . $listCount] = $value['schoolGroup'];
+                        
+                        $listCount++;
                     }
                 ?>
         </div>
