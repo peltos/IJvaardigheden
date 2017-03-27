@@ -14,7 +14,7 @@ session_start();
     <body>
 
         <div class="container">
-            Bedankt voor u aanvraag.
+            Bedankt voor uw aanvraag.
         </div>
 
 
