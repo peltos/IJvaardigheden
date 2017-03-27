@@ -54,7 +54,7 @@ if ($gClient->getAccessToken()) {
     
 } else {
     $authUrl = $gClient->createAuthUrl();
-    $output = '<a href="' . filter_var($authUrl, FILTER_SANITIZE_URL) . '"><img src="images/glogin.png" alt=""/></a>';
+    $output = '<a href="' . filter_var($authUrl, FILTER_SANITIZE_URL) . '"><img src="view/googleAPI/images/glogin.png" alt=""/></a>';
 }
 ?>
 <html>

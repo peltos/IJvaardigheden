@@ -3,6 +3,9 @@
 session_start();
 $idUser = $_GET['edit'];
 
+if ($_SESSION['userData'] == '') {
+    header("Location:index.php");
+}
 ?>
 
 <!DOCTYPE html>

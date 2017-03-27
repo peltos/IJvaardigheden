@@ -1,3 +1,10 @@
+<?php
+// Start the session
+session_start();
+if ($_SESSION['userData'] == '') {
+    header("Location:index.php");
+}
+?>
 <!DOCTYPE html>
 <html>
     <head>
