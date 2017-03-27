@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Een formulier</title>
+        <title>Gebruiker toevoegen</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap -->
         <link href="view/css/bootstrap.min.css" rel="stylesheet" media="screen">
     </head>
     <body>
         <a href="admin.php"> admin </a>
+        <br>
+        <a href="SGAdmin.php"> klas toevoegen </a>
         <div class="container">
             <h2>Vul dit formulier in</h2>
             <form method="post">
