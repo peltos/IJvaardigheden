@@ -17,6 +17,7 @@ session_start();
         <div class="fluid-container">
             <header class="col-xs-12 col-sm-4 col-md-3" style="height: 100vh; background: lightgrey; ">
                 <a href="addUser.php"> addUser </a>
+                <p>Logout from <a href="/pad/view/googleAPI/logout.php">Google</a></p>
             </header>
                 <?php
                     $listCount = 0;
