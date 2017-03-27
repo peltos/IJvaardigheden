@@ -18,10 +18,10 @@ $idUser = $_GET['edit'];
         <div class="container">
             <h2>Vul dit formulier in</h2>
             <form method="post">
-                <div class="form-group">
+<!--                <div class="form-group">
                     <label for="fname">*Email</label>
                     <input type="text" class="form-control" id="email" name="email" value="<?php echo $_SESSION["email". $idUser] ?>">
-                </div>
+                </div>-->
                 <div class="form-group">
                     <label for="lname">*Voornaam</label>
                     <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo $_SESSION["fName". $idUser] ?>">
@@ -34,14 +34,14 @@ $idUser = $_GET['edit'];
                     <label for="zipcode">*Achternaam</label>
                     <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo $_SESSION["lName". $idUser] ?>">
                 </div>
-                <div class="form-group">
+<!--                <div class="form-group">
                     <label for="city">*Wachwoord</label>
                     <input type="password" class="form-control" id="password" name="password">
                 </div>
                 <div class="form-group">
                     <label for="city">*Wachtwoord herhalen</label>
                     <input type="password" class="form-control" id="password2" name="password2">
-                </div> 
+                </div> -->
                 <div class="form-group">
                     <label for="city">*role</label><br>
                     

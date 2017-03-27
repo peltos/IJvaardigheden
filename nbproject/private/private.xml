@@ -5,7 +5,9 @@
         <group>
             <file>file:/C:/wamp64/www/PAD/editUser.php</file>
             <file>file:/C:/wamp64/www/PAD/app/controller/controller_edituser.php</file>
+            <file>file:/C:/wamp64/www/PAD/view/addUser.php</file>
             <file>file:/C:/wamp64/www/PAD/app/model/model_addUser.php</file>
+            <file>file:/C:/wamp64/www/PAD/config/config.php</file>
             <file>file:/C:/wamp64/www/PAD/view/user.php</file>
             <file>file:/C:/wamp64/www/PAD/index.php</file>
             <file>file:/C:/wamp64/www/PAD/app/model/model_editUser.php</file>

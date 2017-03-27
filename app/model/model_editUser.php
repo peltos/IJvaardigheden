@@ -19,15 +19,17 @@ class ModelEditUser {
         $this->database = new DatabasePDO();
     }
 
-    public function writePost($email, $firstName, $insertion, $lastName, $password, $role, $schoolGroup) {
-        $this->database->query('INSERT INTO user (email, firstName, insertion, lastName, password, role, schoolGroup) VALUES (:email, :firstName, :insertion, :lastName, :password, :role, :schoolGroup)');
-        $this->database->bind(':email', $email);
+    public function writePost($firstName, $insertion, $lastName, $role, $schoolGroup, $session) {
+        
+        $this->database->query("UPDATE `PAD-app`.`user` SET `firstName`=:firstName, `insertion`=:insertion, `lastName`=:lastName, `role`=:role WHERE `email`=:where;");
+//        $this->database->bind(':email', $email);
         $this->database->bind(':firstName', $firstName);
         $this->database->bind(':insertion', $insertion);
         $this->database->bind(':lastName', $lastName);
-        $this->database->bind(':password', $password);
+//        $this->database->bind(':password', $password);
         $this->database->bind(':role', $role);
-        $this->database->bind(':schoolGroup', $schoolGroup);
+        $this->database->bind(':where', $session);
+        
         if ($this->database->execute()) {
             return true;
         } else {

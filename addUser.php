@@ -30,7 +30,7 @@ switch ($method) {
 
     case 'POST':   
         if ($controller->writeForm($_POST)) {
-             require_once __DIR__.'/view/admin.php';
+            header('Location:admin.php'); 
         } else {
             require_once __DIR__.'/view/error.php';
         }

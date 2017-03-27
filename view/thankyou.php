@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+// Start the session
+session_start();
+
+?>
 <html>
     <head>
         <title>Bedankt</title>

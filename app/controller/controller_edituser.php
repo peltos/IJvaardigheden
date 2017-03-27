@@ -1,25 +1,24 @@
 <?php
-require_once './app/model/model_addUser.php';
+require_once './app/model/model_editUser.php';
 
 class controllerEditUser {
      
-    private $ModelAddUser;
+    private $ModelEditUser;
     
     
     public function __construct(){          
-        $this -> ModelAddUser = new ModelAddUser();
+        $this -> ModelEditUser = new ModelEditUser();
     }
 
     public function writeForm($post) {
-        // print_r($post); // debug 
+        print_r($post); // debug 
         
         //TODO check POST
-        return $this->ModelAddUser->writePost($post['email'], $post['firstName'], $post['insertion'], $post['lastName'], $post['password'], $post['role'], $post['schoolGroup']);
-
+        return $this->ModelEditUser->writePost($post['firstName'], $post['insertion'], $post['lastName'], $post['role'], $post['schoolGroup']);
     }
 
     public function index() {
-        $readList = $this->ModelAddUser->readSchoolGroupList();
+        $readList = $this->ModelEditUser->readSchoolGroupList();
 //        print_r($readList);
         require_once './view/editUser.php'; 
     }
