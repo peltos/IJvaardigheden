@@ -19,15 +19,16 @@ class ModelUser {
         $this->database = new DatabasePDO();
     }
 
-    public function writePost($email, $firstName, $insertion, $lastName, $password, $role, $schoolGroup) {
-        $this->database->query('INSERT INTO users (email, firstName, insertion, lastName, password, role, schoolGroup) VALUES (:email, :firstName, :insertion, :lastName, :password, :role, :schoolGroup)');
-        $this->database->bind(':email', $email);
+    public function writePost($firstName, $lastName, $image) {
+        $this->database->query('INSERT INTO users (first_name, last_name) VALUES (:firstName, :lastName, :image');
+        //$this->database->bind(':email', $email);
         $this->database->bind(':firstName', $firstName);
-        $this->database->bind(':insertion', $insertion);
+        //$this->database->bind(':insertion', $insertion);
         $this->database->bind(':lastName', $lastName);
-        $this->database->bind(':password', $password);
-        $this->database->bind(':role', $role);
-        $this->database->bind(':schoolGroup', $schoolGroup);
+        $this->database->bind(':image', $image);
+        //$this->database->bind(':password', $password);
+       // $this->database->bind(':role', $role);
+        //$this->database->bind(':schoolGroup', $schoolGroup);
         if ($this->database->execute()) {
             return true;
         } else {
