@@ -20,7 +20,7 @@ class ModelUser {
     }
 
     public function writePost($email, $firstName, $insertion, $lastName, $password, $role, $schoolGroup) {
-        $this->database->query('INSERT INTO user (email, firstName, insertion, lastName, password, role, schoolGroup) VALUES (:email, :firstName, :insertion, :lastName, :password, :role, :schoolGroup)');
+        $this->database->query('INSERT INTO users (email, firstName, insertion, lastName, password, role, schoolGroup) VALUES (:email, :firstName, :insertion, :lastName, :password, :role, :schoolGroup)');
         $this->database->bind(':email', $email);
         $this->database->bind(':firstName', $firstName);
         $this->database->bind(':insertion', $insertion);
@@ -35,7 +35,7 @@ class ModelUser {
         }
     }
     public function readUsers() {
-        $this->database->query('SELECT * FROM user');
+        $this->database->query('SELECT * FROM users');
         return $this->database->resultset();
     }
 

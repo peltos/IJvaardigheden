@@ -23,15 +23,12 @@ if ($gClient->getAccessToken()) {
 
     //Insert or update user data to the database
     $gpUserData = array(
-        'oauth_provider' => 'google',
         'oauth_uid' => $gpUserProfile['id'],
         'first_name' => $gpUserProfile['given_name'],
         'last_name' => $gpUserProfile['family_name'],
         'email' => $gpUserProfile['email'],
         'gender' => $gpUserProfile['gender'],
-        'locale' => $gpUserProfile['locale'],
-        'picture' => $gpUserProfile['picture'],
-        'link' => $gpUserProfile['link']
+        'picture' => $gpUserProfile['picture']
     );
     $userData = $user->checkUser($gpUserData);
 
@@ -39,18 +36,12 @@ if ($gClient->getAccessToken()) {
     $_SESSION['userData'] = $userData;
 
     //Render facebook profile data
-    if (strpos($userData['email'], '@gmail') != false) {
         if (!empty($userData)) {
             header("Location:admin.php");
         } else {
             $output = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
         }
-    }
-    else{
-        $output = '<h3 style="color:red">You are not allowed to login. You are not part of the IJburg college</h3>';
-        $output .= '<br/>Logout from <a href="/pad/view/googleAPI/logout.php">Google</a>'; 
-        
-    }
+
     
 } else {
     $authUrl = $gClient->createAuthUrl();
