@@ -1,4 +1,3 @@
-
 <?php
 //Include GP config file && User class
 include_once 'googleAPI/gpConfig.php';
@@ -75,6 +74,7 @@ if ($gClient->getAccessToken()) {
                 <div class="auth-box ">
                     <div class="left">
                         <div class="content">
+                            <!-- Google login button -->
                             <?php
                             print_r($userData['email'])
                             ?>

@@ -1,76 +1,66 @@
-<?php
-// Start the session
-session_start();
-$idUser = $_GET['edit'];
-
-if ($_SESSION['userData'] == '') {
-    header("Location:index.php");
-}
-?>
-
-<!DOCTYPE html>
-<html>
-    <head>
-        <title>Een formulier</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap -->
-        <link href="view/css/bootstrap.min.css" rel="stylesheet" media="screen">
-    </head>
-    <body>
-        <a href="admin.php"> admin </a>
-        <div class="container">
-            <h2>Vul dit formulier in</h2>
-            <form method="post">
-<!--                <div class="form-group">
-                    <label for="fname">*Email</label>
-                    <input type="text" class="form-control" id="email" name="email" value="<?php echo $_SESSION["email". $idUser] ?>">
-                </div>-->
-                <div class="form-group">
-                    <label for="lname">*Voornaam</label>
-                    <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo $_SESSION["fName". $idUser] ?>">
+<?php include 'headAdmin.php'; ?>
+<!-- MAIN -->
+<div class="main">
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+        <div class="container-fluid">
+            <div class="panel">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Aanpassen gebruiker</h3>
                 </div>
-                <div class="form-group">
-                    <label for="address">Tussenvoegsel</label>
-                    <input type="text" class="form-control" id="insertion" name="insertion" value="<?php echo $_SESSION["insertion". $idUser] ?>">
-                </div>      
-                <div class="form-group">
-                    <label for="zipcode">*Achternaam</label>
-                    <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo $_SESSION["lName". $idUser] ?>">
-                </div>
-<!--                <div class="form-group">
-                    <label for="city">*Wachwoord</label>
-                    <input type="password" class="form-control" id="password" name="password">
-                </div>
-                <div class="form-group">
-                    <label for="city">*Wachtwoord herhalen</label>
-                    <input type="password" class="form-control" id="password2" name="password2">
-                </div> -->
-                <div class="form-group">
-                    <label for="city">*role</label><br>
-                    
-                    <input type="radio" id="role0" name="role" value="0" <?php if($_SESSION["role" . $idUser] == 0){echo 'checked';} ?>> Leerling<br>
-                    
-                    <input type="radio" id="role1" name="role" value="1" <?php if($_SESSION["role" . $idUser] == 1){echo 'checked';} ?>> Docent<br>
-                    <input type="radio" id="role2" name="role" value="2" <?php if($_SESSION["role" . $idUser] == 2){echo 'checked';} ?>> Admin<br>
-                </div>        
-                <br>
-                <div class="form-group">
-                    <label for="city">group</label>
-                    <select class="form-control" id="schoolGroup" name="schoolGroup">
-                    <?php 
-                        foreach($readList as $value) {
-                            echo '<option value="'.$value['schoolGroup'].'">'.$value['schoolGroup'].'</option>';
-                        }
-                    ?>
-                    </select>
-                </div>      
+                <div class="panel-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="lname">*Voornaam</label>
+                            <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo $_SESSION["fName" . $idUser] ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Tussenvoegsel</label>
+                            <input type="text" class="form-control" id="insertion" name="insertion" value="<?php echo $_SESSION["insertion" . $idUser] ?>">
+                        </div>      
+                        <div class="form-group">
+                            <label for="zipcode">*Achternaam</label>
+                            <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo $_SESSION["lName" . $idUser] ?>">
+                        </div>
+                        <div class="form-group">
+                            <label for="city">*role</label><br>
+                            
+                            <!-- de sessions van de Admin.php worden hier ingeladen -->
 
-                <button type="submit" class="btn btn-default" >Submit</button>
-            </form>
+                            <input type="radio" id="role0" name="role" value="0" <?php
+                            if ($_SESSION["role" . $idUser] == 0) {
+                                echo 'checked';
+                            }
+                            ?>> Leerling<br>
+
+                            <input type="radio" id="role1" name="role" value="1" <?php
+                            if ($_SESSION["role" . $idUser] == 1) {
+                                echo 'checked';
+                            }
+                            ?>> Docent<br>
+                            <input type="radio" id="role2" name="role" value="2" <?php
+                                   if ($_SESSION["role" . $idUser] == 2) {
+                                       echo 'checked';
+                                   }
+                            ?>> Admin<br>
+                        </div>        
+                        <br>
+                        <div class="form-group">
+                            <label for="city">group</label>
+                            <select class="form-control" id="schoolGroup" name="schoolGroup">
+                                <?php
+                                // de groepen inladen in de tabel
+                                foreach ($readList as $value) {
+                                    echo '<option value="' . $value['schoolGroup'] . '">' . $value['schoolGroup'] . '</option>';
+                                }
+                                ?>
+                            </select>
+                        </div>      
+
+                        <button type="submit" class="btn btn-default" >Submit</button>
+                    </form>
+                </div>
+            </div>
         </div>
-
-        <script src="http://code.jquery.com/jquery.js"></script>
-        <script src="view/js/bootstrap.min.js"></script>
-
-    </body>
-</html>
+    </div>
+<?php include 'footer.php'; ?>
