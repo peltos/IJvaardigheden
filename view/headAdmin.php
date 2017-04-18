@@ -1,11 +1,11 @@
-<?php
+ <?php
 // Start the session
 session_start();
 if ($_SESSION['userData'] == '') {
     header("Location:index.php");
 }
 
-?>
+?> 
 <!DOCTYPE html>
 <head>
     <title>IJ-vaardigheden - Admin</title>
@@ -50,8 +50,8 @@ if ($_SESSION['userData'] == '') {
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 
                                 <img src="
-                                    <?php echo $_SESSION['userPicture'] ?>
-                                " class="img-circle" alt="Avatar"> <span><?php echo $_SESSION['userFName'] . ' ' . $_SESSION['userLName'] ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                                    <?php  echo $_SESSION['userPicture'] ?>
+                                " class="img-circle" alt="Avatar"> <span><?php  echo $_SESSION['userFName'] . ' ' . $_SESSION['userLName'] ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/pad/view/googleAPI/logout.php"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
                             </ul>
@@ -67,8 +67,9 @@ if ($_SESSION['userData'] == '') {
             <div class="sidebar-scroll">
                 <nav>
                     <ul class="nav">
-                        <li><a href="admin.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'admin.php') {echo 'active';} ?>"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-                        <li><a href="addUser.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'addUser.php') {echo 'active';} ?>"><i class="lnr lnr-cog"></i> <span>Toevoegen gebruiker</span></a></li>
+                        <li><a href="admin.php" class="<?php  if(basename($_SERVER['PHP_SELF']) == 'admin.php') {echo 'active';} ?>"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                        <li><a href="student.php" class="<?php  if(basename($_SERVER['PHP_SELF']) == 'student.php') {echo 'active';} ?>"><i class="lnr lnr-home"></i> <span>Badges</span></a></li>
+<!--                        <li><a href="addUser.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'addUser.php') {echo 'active';} ?>"><i class="lnr lnr-cog"></i> <span>Toevoegen gebruiker</span></a></li>-->
                         <li><a href="SGAdmin.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'SGAdmin.php') {echo 'active';} ?>"><i class="lnr lnr-cog"></i> <span>Vakken</span></a></li>
                     </ul>
                 </nav>

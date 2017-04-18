@@ -18,9 +18,8 @@ class ModelUser {
     public function __construct() {
         $this->database = new DatabasePDO();
     }
-
-    public function readUsers() {
-        $this->database->query('SELECT * FROM users');
+    public function readBadges() {
+        $this->database->query('SELECT * FROM `PAD-app`.badges');
         return $this->database->resultset();
     }
 

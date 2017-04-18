@@ -10,18 +10,18 @@
                 </div>
                 <div class="panel-body">
                     <form method="post">
-                        <div class="form-group">
+<!--                        <div class="form-group">
                             <label for="lname">*Voornaam</label>
-                            <input type="text" class="form-control" id="firstName" name="firstName" value="<?php echo $_SESSION["fName" . $idUser] ?>">
+                            <input type="text" class="form-control" id="firstName" name="firstName" value="<?php //echo $_SESSION["fName" . $idUser] ?>">
                         </div>
                         <div class="form-group">
                             <label for="address">Tussenvoegsel</label>
-                            <input type="text" class="form-control" id="insertion" name="insertion" value="<?php echo $_SESSION["insertion" . $idUser] ?>">
+                            <input type="text" class="form-control" id="insertion" name="insertion" value="<?php //echo $_SESSION["insertion" . $idUser] ?>">
                         </div>      
                         <div class="form-group">
                             <label for="zipcode">*Achternaam</label>
-                            <input type="text" class="form-control" id="lastName" name="lastName" value="<?php echo $_SESSION["lName" . $idUser] ?>">
-                        </div>
+                            <input type="text" class="form-control" id="lastName" name="lastName" value="<?php //echo $_SESSION["lName" . $idUser] ?>">
+                        </div>-->
                         <div class="form-group">
                             <label for="city">*role</label><br>
                             

@@ -9,7 +9,8 @@ and open the template in the editor.
 */
 
 .imageUser{
-    width: 100%;
+    max-width: 120px;
+    max-height:120px;
 }
 .loginGoogleImage{
     width: 100%;
