@@ -13,15 +13,28 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp64/www/PAD/app/model/model_badges.php</file>
+            <file>file:/C:/wamp64/www/PAD/SGAdmin.php</file>
+            <file>file:/C:/wamp64/www/PAD/view/addSchoolGroup.php</file>
+            <file>file:/C:/wamp64/www/PAD/app/controller/controller_SG.php</file>
+            <file>file:/C:/wamp64/www/PAD/app/controller/controller_addUser.php</file>
+            <file>file:/C:/wamp64/www/PAD/view/footer.php</file>
+            <file>file:/C:/wamp64/www/PAD/app/model/model_SG.php</file>
+            <file>file:/C:/wamp64/www/PAD/view/user.php</file>
+            <file>file:/C:/wamp64/www/PAD/view/headAdmin.php</file>
+            <file>file:/C:/wamp64/www/PAD/view/editUser.php</file>
+            <file>file:/C:/wamp64/www/PAD/app/controller/controller_user.php</file>
+            <file>file:/C:/wamp64/www/PAD/admin.php</file>
             <file>file:/C:/wamp64/www/PAD/view/badges.php</file>
             <file>file:/C:/wamp64/www/PAD/view/css/custom.css</file>
             <file>file:/C:/wamp64/www/PAD/student.php</file>
+            <file>file:/C:/wamp64/www/PAD/app/model/database_pdo.php</file>
             <file>file:/C:/wamp64/www/PAD/app/controller/controller_badges.php</file>
+            <file>file:/C:/wamp64/www/PAD/view/login.php</file>
+            <file>file:/C:/wamp64/www/PAD/addUser.php</file>
             <file>file:/C:/wamp64/www/PAD/app/model/model_user.php</file>
-            <file>file:/C:/wamp64/www/PAD/view/user.php</file>
-            <file>file:/C:/wamp64/www/PAD/view/headAdmin.php</file>
+            <file>file:/C:/wamp64/www/PAD/config/config.php</file>
+            <file>file:/C:/wamp64/www/PAD/index.php</file>
             <file>file:/C:/wamp64/www/PAD/view/css/main.css</file>
-            <file>file:/C:/wamp64/www/PAD/view/editUser.php</file>
         </group>
     </open-files>
 </project-private>

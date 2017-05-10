@@ -2,7 +2,7 @@
 // Start the session
 session_start();
 if ($_SESSION['userData'] == '') {
-    header("Location:index.php");
+//    header("Location:index.php");
 }
 
 ?> 
@@ -53,7 +53,7 @@ if ($_SESSION['userData'] == '') {
                                     <?php  echo $_SESSION['userPicture'] ?>
                                 " class="img-circle" alt="Avatar"> <span><?php  echo $_SESSION['userFName'] . ' ' . $_SESSION['userLName'] ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
                             <ul class="dropdown-menu">
-                                <li><a href="/pad/view/googleAPI/logout.php"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+                                <li><a href="/~reinded003/view/googleAPI/logout.php"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
                             </ul>
                         </li>
                     </ul>

@@ -10,7 +10,7 @@ include_once 'src/contrib/Google_Oauth2Service.php';
  */
 $clientId = '996529751909-ua9bnrd3j3bmvpei3kjj6ie89fm4ghku.apps.googleusercontent.com'; //Google client ID
 $clientSecret = 'qUeA8OGGABFKkSl4jJXp-RKU'; //Google client secret
-$redirectURL = 'http://ronpelt.synology.me/pad'; //Callback URL
+$redirectURL = 'https://oege.ie.hva.nl/~reinded003/'; //Callback URL
 
 //Call Google API
 $gClient = new Google_Client();
