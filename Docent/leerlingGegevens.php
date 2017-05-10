@@ -19,5 +19,5 @@
       {
         echo"<tr><td>".$row['email']."</td><td>".$row['first_name']."</td><td>".$row['last_name']."</td><td>"
         .$row['gender']."</td></tr>".$row['picture']."</td></tr>".$row['created']."</td></tr>".$row['modified']."</td></tr>"
-        .$row['schoolGroup_schoolGroup']."</td></tr>";<br>}<br>echo "</table>";<br>mysql_close($con);
+        .$row['schoolGroup_schoolGroup']."</td></tr>";<br>}<br>echo "</table>";<br>mysql_close($con);  
     ?>
