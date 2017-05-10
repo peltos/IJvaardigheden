@@ -14,7 +14,14 @@
                             <label for="cname">Klas</label>
                             <input type="text" class="form-control" id="groupName" name="groupName" placeholder="Geef de klas">
                         </div>
-                        <button type="submit" class="btn btn-default" >Submit</button>
+                        <button type="submit" class="btn btn-default" >Submit</button> 
+                        <?php
+                    
+                        foreach ($readList as $value) {
+                         echo $value['schoolGroup'];
+                         echo '<hr>';
+                        }
+                        ?>
                     </form>
                 </div>
             </div>

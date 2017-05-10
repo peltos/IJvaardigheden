@@ -19,6 +19,8 @@ class SGPostsController {
     }
 
     public function SGAdmin() {
+        $readList = $this->ModelAddSG->readSchoolGroupList();
+        print_r($readList);
         require_once './view/addSchoolGroup.php';
     }
 
