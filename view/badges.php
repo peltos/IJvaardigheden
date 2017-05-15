@@ -31,12 +31,22 @@
                                     echo '<hr>';
                                     echo '<div class="starRating">';
                                         echo '<fieldset class="rating closeRow '.$starCount.'">';
-                                            echo '<input type="radio" id="cross-'.$starCount.'" name="rating'.$starCount.'" value="3" /><label for="cross-'.$starCount.'" title="niet"><span>&#9747</span></label>';
+                                            echo '<input type="radio" id="cross-'.$starCount.'" name="rating'.$starCount.'" value="3" ';
+                                            if ($value['done'] == 0 || $value['done'] == null) {echo 'checked';} 
+                                            echo '/><label for="cross-'.$starCount.'" title="niet"><span>&#216;</span></label>';
                                         echo '</fieldset>';
                                         echo '<fieldset class="rating starRow '.$starCount.'">';
-                                            echo '<input type="radio" id="star3-'.$starCount.'" name="rating'.$starCount.'" value="3" /><label for="star3-'.$starCount.'" title="3"><span>&#9733</span></label>';
-                                            echo '<input type="radio" id="star2-'.$starCount.'" name="rating'.$starCount.'" value="2" /><label for="star2-'.$starCount.'" title="2"><span>&#9733</span></label>';
-                                            echo '<input type="radio" id="star1-'.$starCount.'" name="rating'.$starCount.'" value="1" /><label for="star1-'.$starCount.'" title="1"><span>&#9733</span></label>';
+                                            echo '<input type="radio" id="star3-'.$starCount.'" name="rating'.$starCount.'" value="3" ';
+                                            if ($value['done'] == 3) {echo 'checked';}         
+                                            echo '/><label for="star3-'.$starCount.'" title="3"><span>&#9733</span></label>';
+                                            
+                                            echo '<input type="radio" id="star2-'.$starCount.'" name="rating'.$starCount.'" value="2" ';
+                                            if ($value['done'] == 2) {echo 'checked';}         
+                                            echo '/><label for="star2-'.$starCount.'" title="2"><span>&#9733</span></label>';
+                                            
+                                            echo '<input type="radio" id="star1-'.$starCount.'" name="rating'.$starCount.'" value="1" ';
+                                            if ($value['done'] == 1) {echo 'checked';}         
+                                            echo '/><label for="star1-'.$starCount.'" title="1"><span>&#9733</span></label>';
                                         echo '</fieldset>';
                                         $starCount++;
                                     echo '</div>';

@@ -12,9 +12,6 @@ require_once __DIR__.'/app/controller/controller_user.php';
 //kijk met welk request type je te maken hebt
 $method = $_SERVER['REQUEST_METHOD'];
 
-
-
-
  $controller = new PostsController();
 
 //switch op de http methode 
