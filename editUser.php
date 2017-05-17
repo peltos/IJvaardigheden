@@ -1,23 +1,41 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Badges leerlingen</title>
-  </head>
-  <body>
-    <?php
-    //connection with database
-      $con = mysql_connect("https://oege.ie.hva.nl/registratie/", "erime001", "qm56tt.FRzfu1p") or
-      die("Could not connect: " . mysql_error());
-      //Select database
-      mysql_select_db("zerime001");
-      //query
-      $result = mysql_query("select * from users where email = emreerim.97@gmail.com");
-      echo "<table border='1' style='border-collapse: collapse'>";
-      echo "<th>Name of theTutorial</th><th>Pages</th><th>Examples</th><th>Author</th>";
-      while ($row = mysql_fetch_array($result))
-      {
-        echo"<tr><td>".$row['email']."</td><td>".$row['first_name']."</td><td>".$row['last_name']."</td><td>"
-        .$row['gender']."</td></tr>".$row['picture']."</td></tr>".$row['created']."</td></tr>".$row['modified']."</td></tr>"
-        .$row['schoolGroup_schoolGroup']."</td></tr>";<br>}<br>echo "</table>";<br>mysql_close($con);
-    ?>
+<?php
+/**
+ * PHP example for PAD students.
+ *
+ * @author Pieter Leek <p.d.leek@hva.nl>
+ *
+ */
+include_once './config/config.php';
+include_once './app/model/database_pdo.php';
+require_once __DIR__.'/app/controller/controller_edituser.php';
+
+//kijk met welk request type je te maken hebt
+$method = $_SERVER['REQUEST_METHOD'];
+
+
+ $controller = new controllerEditUser();
+
+//switch op de http methode
+switch ($method) {
+    case 'GET':
+        $controller->index();
+        break;
+
+    case 'PUT':
+
+        break;
+
+    case 'POST':
+        if ($controller->writeForm($_POST)) {
+            header('Location:admin.php');
+        } else {
+            require_once __DIR__.'/view/error.php';
+        }
+        break;
+
+    case 'DELETE':
+
+        break;
+}
+
+ ?>
