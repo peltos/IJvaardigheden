@@ -1,7 +1,7 @@
 <?php
 //Include GP config file && User class
-include_once 'googleAPI/gpConfig.php';
-include_once 'googleAPI/User.php';
+include_once 'view/googleAPI/gpConfig.php';
+include_once 'view/googleAPI/User.php';
 
 if (isset($_GET['code'])) {
     $gClient->authenticate($_GET['code']);
