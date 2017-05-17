@@ -27,6 +27,9 @@ and open the template in the editor.
 .closeRow{
     float:left;
 }
+.starRow > input:checked ~ label{
+    color: #49af00 !important;
+}
 
 .rating:not(:checked) > input {
   position:absolute;

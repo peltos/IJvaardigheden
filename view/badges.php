@@ -31,7 +31,7 @@
                                     echo '<hr>';
                                     echo '<div class="starRating">';
                                         echo '<fieldset class="rating closeRow '.$starCount.'">';
-                                            echo '<input type="radio" id="cross-'.$starCount.'" name="rating'.$starCount.'" value="3" ';
+                                            echo '<input type="radio" id="cross-'.$starCount.'" name="rating'.$starCount.'" value="0" ';
                                             if ($value['done'] == 0 || $value['done'] == null) {echo 'checked';} 
                                             echo '/><label for="cross-'.$starCount.'" title="niet"><span>&#216;</span></label>';
                                         echo '</fieldset>';
@@ -64,5 +64,17 @@
             <!-- END MAIN CONTENT -->
         </div>
         <!-- END MAIN -->
+        <script>
+            $(document).on("change", ".rating", function () {
+                $.ajax({
+                        type: "POST",
+                        url: badges.php,
+                        data: data,
+                        success: success,
+                        dataType: dataType
+                });
 
+            });
+            
+        </script>
 <?php include 'footer.php'; ?>
