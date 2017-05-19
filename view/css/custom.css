@@ -8,6 +8,21 @@ and open the template in the editor.
     Author     : peltos
 */
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+.notificationStyle {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    padding: 5px 13px;
+    background: #4d87ba;
+    color: white;
+    font-size: 30px;
+    border-radius: 0 0 20px 0;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+.relativePanel {
+    position: relative;
+}
 
 .imageUser{
     max-width: 120px;

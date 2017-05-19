@@ -13,43 +13,50 @@
                     
                     $listCount = 0;
                     $starCount = 0;
+                    
                     echo '<div class="row">';
                     foreach ($readList as $value) {
                         
                         // voor elke 6 gebruikers wordt er een nieuwe Row aangemaakt
-                        if ($listCount == 6) {
+                        if ($listCount == 4) {
                             echo '</div>';
                             echo '<div class="row">';
                             $listCount = 0;
                         }
-                        echo '<div class="col-md-2">';
+                        echo '<div class="col-md-3">';
                             echo '<div class="panel">';
-                                echo '<div class="panel-body">';
+                                echo '<div class="panel-body relativePanel">';
                                     echo '<center><img class="imageUser" src="view/img/' . $value['pathToImage'] . '.png">';
                                     echo '<p>' . $value['subject_subject']. '</p> ';
                                     echo '<p>' . $value['description']. '</p></center>  ';
                                     echo '<hr>';
-                                    echo '<div class="starRating">';
-                                        echo '<fieldset class="rating closeRow '.$starCount.'">';
-                                            echo '<input type="radio" id="cross-'.$starCount.'" name="rating'.$starCount.'" value="0" ';
+                                    echo '<form class="starRating" id="'.$value['idbadges'].'">';
+                                        echo '<fieldset class="rating closeRow" name="'.$value['idbadges'].'">';
+                                            echo '<input type="radio" class="starcheck" id="cross-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="0" ';
                                             if ($value['done'] == 0 || $value['done'] == null) {echo 'checked';} 
-                                            echo '/><label for="cross-'.$starCount.'" title="niet"><span>&#216;</span></label>';
+                                            echo '/>';
+                                            echo '<label value="'.$value['idbadges'].'" for="cross-'.$value['idbadges'].'" title="niet"><span>&#216;</span></label>';
                                         echo '</fieldset>';
-                                        echo '<fieldset class="rating starRow '.$starCount.'">';
-                                            echo '<input type="radio" id="star3-'.$starCount.'" name="rating'.$starCount.'" value="3" ';
+                                        echo '<fieldset class="rating starRow" name="'.$value['idbadges'].'">';
+                                            echo '<input type="radio" class="starcheck" id="star3-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="3" ';
                                             if ($value['done'] == 3) {echo 'checked';}         
-                                            echo '/><label for="star3-'.$starCount.'" title="3"><span>&#9733</span></label>';
+                                            echo '/>';
+                                            echo '<label value="'.$value['idbadges'].'" for="star3-'.$value['idbadges'].'" title="3"><span>&#9733</span></label>';
                                             
-                                            echo '<input type="radio" id="star2-'.$starCount.'" name="rating'.$starCount.'" value="2" ';
+                                            echo '<input type="radio" class="starcheck" id="star2-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="2" ';
                                             if ($value['done'] == 2) {echo 'checked';}         
-                                            echo '/><label for="star2-'.$starCount.'" title="2"><span>&#9733</span></label>';
+                                            echo '/>';
+                                            echo '<label value="'.$value['idbadges'].'" for="star2-'.$value['idbadges'].'" title="2"><span>&#9733</span></label>';
                                             
-                                            echo '<input type="radio" id="star1-'.$starCount.'" name="rating'.$starCount.'" value="1" ';
+                                            echo '<input type="radio" class="starcheck" id="star1-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="1" ';
                                             if ($value['done'] == 1) {echo 'checked';}         
-                                            echo '/><label for="star1-'.$starCount.'" title="1"><span>&#9733</span></label>';
+                                            echo '/>';
+                                            echo '<label value="'.$value['idbadges'].'" for="star1-'.$value['idbadges'].'" title="1"><span>&#9733</span></label>';
                                         echo '</fieldset>';
+                                        echo '<div class="infoBadge" > </div>';
                                         $starCount++;
-                                    echo '</div>';
+                                        
+                                    echo '</form>';
                                 echo '</div>';
                             echo '</div>';    
                         echo '</div>';
@@ -64,17 +71,28 @@
             <!-- END MAIN CONTENT -->
         </div>
         <!-- END MAIN -->
+        <script src="view/vendor/jquery/jquery.min.js"></script>
         <script>
-            $(document).on("change", ".rating", function () {
-                $.ajax({
-                        type: "POST",
-                        url: badges.php,
-                        data: data,
-                        success: success,
-                        dataType: dataType
-                });
-
-            });
+            $(document).ready(function(){
+                        $(document).on('click', '.starcheck', function () {
+                          var checkedId = $(this).parent().attr("name");
+                          var checkedVal=$(this).val();
+                          var pathInfo=$(this).parents("fieldset").siblings(".infoBadge");
+ 
+                          $.ajax({
+                              type:"post",
+                              url:"https://oege.ie.hva.nl/~reinded003/view/process.php",
+                              data:"checkedVal="+checkedVal+"&checkedId="+checkedId,
+                              success:function(data){
+                                 pathInfo.html(data);
+                                 pathInfo.addClass("notificationStyle");
+                              }
+ 
+                          });
+                          
+ 
+                    });
+               });
             
         </script>
 <?php include 'footer.php'; ?>
