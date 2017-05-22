@@ -8,6 +8,34 @@ and open the template in the editor.
     Author     : peltos
 */
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+/* profile pagina*/
+
+.profilePic {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 75px;
+    float: left;
+    margin: 20px 40px 20px 0;
+}
+.profilePic img {
+    height: 100%;
+}
+.profileContainer{
+    width:calc(50% - 95px);
+}
+.profileContainer textarea {
+    width: 100%;
+}
+@media (min-width: 700px) {
+    .profileContainer {
+        width:calc(50% - 95px);
+        float:left;
+    }
+}
+/* einde profile pagina*/
+
 .notificationStyle {
     position: absolute;
     top: -1px;
