@@ -16,12 +16,12 @@
                     foreach ($readList as $value) {
                         
                         // voor elke 6 gebruikers wordt er een nieuwe Row aangemaakt
-                        if ($listCount == 4) {
+                        if ($listCount == 6) {
                             echo '</div>';
                             echo '<div class="row">';
                             $listCount = 0;
                         }
-                        echo '<div class="col-md-3">';
+                        echo '<div class="col-md-2">';
                             echo '<div class="panel">';
                                 echo '<div class="panel-body">';
                                     echo '<center><a href="editUser.php?edit=' . $listCount . '">';

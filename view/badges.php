@@ -26,9 +26,13 @@
                         echo '<div class="col-md-3">';
                             echo '<div class="panel">';
                                 echo '<div class="panel-body relativePanel">';
-                                    echo '<center><img class="imageUser" src="view/img/' . $value['pathToImage'] . '.png">';
-                                    echo '<p>' . $value['subject_subject']. '</p> ';
-                                    echo '<p>' . $value['description']. '</p></center>  ';
+                                    echo '<center class="badgeCenter">';
+                                        echo '<div class="imageBadgeContainer">';
+                                            echo '<img class="imageBadge" src="view/img/' . $value['pathToImage'] . '.png">';
+                                        echo '</div>';
+                                        echo '<p>' . $value['subject_subject']. '</p> ';
+                                        echo '<p>' . $value['description']. '</p>';
+                                    echo '</center>  ';
                                     echo '<hr>';
                                     echo '<form class="starRating" id="'.$value['idbadges'].'">';
                                         echo '<fieldset class="rating closeRow" name="'.$value['idbadges'].'">';
