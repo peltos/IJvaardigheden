@@ -5,6 +5,7 @@
  * Date: 20-3-2017
  * Time: 12:29
  */
+session_start();
 
 include_once './config/config.php';
 include_once './app/model/database_pdo.php';

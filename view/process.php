@@ -5,8 +5,9 @@
  
   $checkedVal=$_POST["checkedVal"];
   $checkedId=$_POST["checkedId"];
+  $checkedEmail=$_POST["checkedEmail"];
 
-  $query=mysql_query("INSERT INTO scoreList (users_email, badges_idbadges, done) VALUES ('thelegendxxx420@gmail.com', $checkedId, $checkedVal)ON DUPLICATE KEY UPDATE done=$checkedVal;");
+  $query=mysql_query("INSERT INTO scoreList (users_email, badges_idbadges, done) VALUES ('$checkedEmail', $checkedId, $checkedVal)ON DUPLICATE KEY UPDATE done=$checkedVal;");
  
   if($query){
     echo "&#10003;";

@@ -9,9 +9,17 @@ class controllerEditUser {
     public function __construct(){
         $this -> ModelEditUser = new ModelEditUser();
     }
+    public function writeForm($post) {
+        // print_r($post); // debug
 
+        //TODO check POST
+        return $this->ModelEditUser->writePost($post['otherInfo']);
+
+    }
     public function index() {
-        $readList = $this->ModelEditUser->readSchoolGroupList();
+        $idUser = $_GET['edit'];
+        $UserEmail = $_SESSION["email" . $idUser];
+        $readList = $this->ModelEditUser->readSchoolGroupList($UserEmail);
 //        print_r($readList);
         require_once './view/editUser.php';
     }

@@ -2,10 +2,10 @@
 
 class User {
 
-    private $dbHost = "ronpelt.synology.me";
-    private $dbUsername = "root";
-    private $dbPassword = "kGjMtEO06BPiu2u4";
-    private $dbName = "PAD-app";
+    private $dbHost = "oege.ie.hva.nl";
+    private $dbUsername = "reinded003";
+    private $dbPassword = "qS9Fu8G8Oo2BBA";
+    private $dbName = "zreinded003";
     private $userTbl = 'users';
 
     function __construct() {
@@ -37,7 +37,7 @@ class User {
                 echo "leerling";
                 if ($prevResult->num_rows > 0) {
                     //Update user data if already exists
-                    $query = "UPDATE " . $this->userTbl . " SET email = '" . $email . "', oauth_uid = '" . $id . "', first_name = '" . $firstName . "', last_name = '" . $lastName. "', gender = '" . $gender . "', picture = '" . $picturePath . "', created = '" . date("Y-m-d H:i:s") . "', modified = '". date("Y-m-d H:i:s")."', role = '0'";         $update = $this->db->query($query);
+                    $query = "UPDATE " . $this->userTbl . " SET email = '" . $email . "', oauth_uid = '" . $id . "', first_name = '" . $firstName . "', last_name = '" . $lastName. "', gender = '" . $gender . "', picture = '" . $picturePath . "', created = '" . date("Y-m-d H:i:s") . "', modified = '". date("Y-m-d H:i:s");         $update = $this->db->query($query);
                 } else {
                     //Insert user data
                     $query = "INSERT INTO " . $this->userTbl . " SET email = '" . $email . "', oauth_uid = '" . $id . "', first_name = '" . $firstName . "', last_name = '" . $lastName. "', gender = '" . $gender . "', picture = '" . $picturePath . "', created = '" . date("Y-m-d H:i:s") . "', modified = '". date("Y-m-d H:i:s")."', role = '0'";
@@ -48,7 +48,7 @@ class User {
                 echo "docent";
                 if ($prevResult->num_rows > 0) {
                     //Update user data if already exists
-                    $query = "UPDATE " . $this->userTbl . " SET email = '" . $email . "', oauth_uid = '" . $id . "', first_name = '" . $firstName . "', last_name = '" . $lastName. "', gender = '" . $gender . "', picture = '" . $picturePath . "', created = '" . date("Y-m-d H:i:s") . "', modified = '". date("Y-m-d H:i:s")."', role = '1'";   $update = $this->db->query($query);
+                    $query = "UPDATE " . $this->userTbl . " SET email = '" . $email . "', oauth_uid = '" . $id . "', first_name = '" . $firstName . "', last_name = '" . $lastName. "', gender = '" . $gender . "', picture = '" . $picturePath . "', created = '" . date("Y-m-d H:i:s") . "', modified = '". date("Y-m-d H:i:s");   $update = $this->db->query($query);
                 } else {
                     //Insert user data
                     $query = "INSERT INTO " . $this->userTbl . " SET email = '" . $email . "', oauth_uid = '" . $id . "', first_name = '" . $firstName . "', last_name = '" . $lastName. "', gender = '" . $gender . "', picture = '" . $picturePath . "', created = '" . date("Y-m-d H:i:s") . "', modified = '". date("Y-m-d H:i:s")."', role = '1'";  $insert = $this->db->query($query);

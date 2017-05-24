@@ -24,15 +24,10 @@ and open the template in the editor.
 }
 .profileContainer{
     width:calc(50% - 95px);
+     float:left;
 }
 .profileContainer textarea {
     width: 100%;
-}
-@media (min-width: 700px) {
-    .profileContainer {
-        width:calc(50% - 95px);
-        float:left;
-    }
 }
 /* einde profile pagina*/
 

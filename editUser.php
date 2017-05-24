@@ -5,6 +5,8 @@
  * @author Pieter Leek <p.d.leek@hva.nl>
  * 
  */
+
+session_start();
 include_once './config/config.php';
 include_once './app/model/database_pdo.php';
 require_once __DIR__.'/app/controller/controller_edituser.php';
@@ -24,14 +26,15 @@ switch ($method) {
 
         break;
 
-    case 'POST':   
+    case 'POST':
+
         if ($controller->writeForm($_POST)) {
-            require_once __DIR__.'/view/thankyou.php';
-//            header('Location:admin.php'); 
+            header('Location:admin.php'); 
         } else {
             require_once __DIR__.'/view/error.php';
         }
         break;
+
 
     case 'DELETE':
 

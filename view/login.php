@@ -36,6 +36,7 @@ if ($gClient->getAccessToken()) {
     $_SESSION['userFName'] = $gpUserProfile['given_name'];
     $_SESSION['userLName'] = $gpUserProfile['family_name'];
     $_SESSION['userPicture'] = $gpUserProfile['picture'];
+    $_SESSION['userEmail'] = $gpUserProfile['email'];
 
     //Render facebook profile data
     if (!empty($userData)) {
@@ -74,10 +75,6 @@ if ($gClient->getAccessToken()) {
                 <div class="auth-box ">
                     <div class="left">
                         <div class="content">
-                            <!-- Google login button -->
-                            <?php
-                            print_r($userData['email'])
-                            ?>
                             <div><?php echo $output; ?></div>
                         </div>
                     </div>

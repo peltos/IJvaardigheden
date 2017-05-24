@@ -75,28 +75,4 @@
             <!-- END MAIN CONTENT -->
         </div>
         <!-- END MAIN -->
-        <script src="view/vendor/jquery/jquery.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                        $(document).on('click', '.starcheck', function () {
-                          var checkedId = $(this).parent().attr("name");
-                          var checkedVal=$(this).val();
-                          var pathInfo=$(this).parents("fieldset").siblings(".infoBadge");
- 
-                          $.ajax({
-                              type:"post",
-                              url:"https://oege.ie.hva.nl/~reinded003/view/process.php",
-                              data:"checkedVal="+checkedVal+"&checkedId="+checkedId,
-                              success:function(data){
-                                 pathInfo.html(data);
-                                 pathInfo.addClass("notificationStyle");
-                              }
- 
-                          });
-                          
- 
-                    });
-               });
-            
-        </script>
 <?php include 'footer.php'; ?>
