@@ -1,7 +1,6 @@
 <?php
-
 class User {
-
+    
     private $dbHost = "oege.ie.hva.nl";
     private $dbUsername = "reinded003";
     private $dbPassword = "qS9Fu8G8Oo2BBA";

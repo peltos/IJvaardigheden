@@ -82,7 +82,13 @@
                     $listCount = 0;
                 }
                 echo '<div class="col-md-3">';
-                            echo '<div class="panel">';
+                            echo '<div class="panel ';
+                            if ($value['done'] == 3) {echo 'rankGold';} 
+                            else if($value['done'] == 2){echo 'rankSilver';}
+                            else if($value['done'] == 1){echo 'rankBrown';}
+                            else {echo 'rankNone';}
+                            
+                            echo '">';
                                 echo '<div class="panel-body relativePanel">';
                                     echo '<center class="badgeCenter">';
                                         echo '<div class="imageBadgeContainer">';
@@ -94,23 +100,23 @@
                                     echo '<hr>';
                                     echo '<form class="starRating" id="'.$value['idbadges'].'">';
                                         echo '<fieldset class="rating closeRow" name="'.$value['idbadges'].'">';
-                                            echo '<input type="radio" class="starcheck" id="cross-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="0" ';
+                                            echo '<input type="radio" class="starcheck input0" id="cross-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="0" ';
                                             if ($value['done'] == 0 || $value['done'] == null) {echo 'checked';}
                                             echo '/>';
                                             echo '<label value="'.$value['idbadges'].'" for="cross-'.$value['idbadges'].'" title="niet"><span>&#216;</span></label>';
                                         echo '</fieldset>';
                                         echo '<fieldset class="rating starRow" name="'.$value['idbadges'].'">';
-                                            echo '<input type="radio" class="starcheck" id="star3-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="3" ';
+                                            echo '<input type="radio" class="starcheck input3" id="star3-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="3" ';
                                             if ($value['done'] == 3) {echo 'checked';}
                                             echo '/>';
                                             echo '<label value="'.$value['idbadges'].'" for="star3-'.$value['idbadges'].'" title="3"><span>&#9733</span></label>';
 
-                                            echo '<input type="radio" class="starcheck" id="star2-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="2" ';
+                                            echo '<input type="radio" class="starcheck input2" id="star2-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="2" ';
                                             if ($value['done'] == 2) {echo 'checked';}
                                             echo '/>';
                                             echo '<label value="'.$value['idbadges'].'" for="star2-'.$value['idbadges'].'" title="2"><span>&#9733</span></label>';
 
-                                            echo '<input type="radio" class="starcheck" id="star1-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="1" ';
+                                            echo '<input type="radio" class="starcheck input1" id="star1-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="1" ';
                                             if ($value['done'] == 1) {echo 'checked';}
                                             echo '/>';
                                             echo '<label value="'.$value['idbadges'].'" for="star1-'.$value['idbadges'].'" title="1"><span>&#9733</span></label>';
@@ -137,9 +143,36 @@
 <script src="view/vendor/jquery/jquery.min.js"></script>
         <script>
             $(document).ready(function(){
+                        $( ".starcheck.input0" ).click(function() {
+                            $(this).parent().parent().parent().parent().addClass("rankNone");
+                            $(this).parent().parent().parent().parent().removeClass("rankBrown");
+                            $(this).parent().parent().parent().parent().removeClass("rankSilver");
+                            $(this).parent().parent().parent().parent().removeClass("rankGold");
+                        });
+                        $( ".starcheck.input1" ).click(function() {
+                            $(this).parent().parent().parent().parent().removeClass("rankNone");
+                            $(this).parent().parent().parent().parent().addClass("rankBrown");
+                            $(this).parent().parent().parent().parent().removeClass("rankSilver");
+                            $(this).parent().parent().parent().parent().removeClass("rankGold");
+                        });
+                        $( ".starcheck.input2" ).click(function() {
+                            $(this).parent().parent().parent().parent().removeClass("rankNone");
+                            $(this).parent().parent().parent().parent().removeClass("rankBrown");
+                            $(this).parent().parent().parent().parent().addClass("rankSilver");
+                            $(this).parent().parent().parent().parent().removeClass("rankGold");
+                        });
+                        $( ".starcheck.input3" ).click(function() {
+                            $(this).parent().parent().parent().parent().removeClass("rankNone");
+                            $(this).parent().parent().parent().parent().removeClass("rankBrown");
+                            $(this).parent().parent().parent().parent().removeClass("rankSilver");
+                            $(this).parent().parent().parent().parent().addClass("rankGold");
+                        });
                         $(document).on('click', '.starcheck', function () {
+                          
+                            
                           var checkedEmail = '<?php echo $_SESSION["email" . $idUser]?>';
                           var checkedId = $(this).parent().attr("name");
+                          
                           var checkedVal=$(this).val();
                           var pathInfo=$(this).parents("fieldset").siblings(".infoBadge");
  
@@ -149,7 +182,12 @@
                               data:"checkedVal="+checkedVal+"&checkedId="+checkedId+"&checkedEmail="+checkedEmail,
                               success:function(data){
                                  pathInfo.html(data);
-                                 pathInfo.addClass("notificationStyle");
+                                 pathInfo.removeClass("notificationStyle0");
+                                 pathInfo.removeClass("notificationStyle1");
+                                 pathInfo.removeClass("notificationStyle2");
+                                 pathInfo.removeClass("notificationStyle3");
+                                 pathInfo.addClass("notificationStyle"+checkedVal);
+                                 
                               }
  
                           });

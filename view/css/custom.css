@@ -9,6 +9,24 @@ and open the template in the editor.
 */
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
+.rankNone {
+    border: 5px solid white;
+}
+.rankBrown {
+    border: 5px solid rgba(165, 105, 42, 0.44);
+}
+.rankSilver {
+    border: 5px solid rgba(192, 192, 192, 0.71);
+}
+.rankGold{
+    border: 5px solid rgba(255, 215, 0, 0.57);
+}
+.starColor{
+    color: #49af00;
+}
+.noneColor{
+    color: #ff7700;
+}
 /* profile pagina*/
 
 .profilePic {
@@ -31,12 +49,48 @@ and open the template in the editor.
 }
 /* einde profile pagina*/
 
-.notificationStyle {
+.notificationStyle0 {
     position: absolute;
     top: -1px;
     left: -1px;
     padding: 5px 13px;
-    background: #00aaff;
+    background: #ff7700;
+    color: white;
+    font-size: 30px;
+    border-radius: 0 0 20px 0;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+.notificationStyle1 {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    padding: 5px 13px;
+    background: rgba(165, 105, 42, 0.44);
+    color: white;
+    font-size: 30px;
+    border-radius: 0 0 20px 0;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+.notificationStyle2 {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    padding: 5px 13px;
+    background: rgba(192, 192, 192, 0.71);
+    color: white;
+    font-size: 30px;
+    border-radius: 0 0 20px 0;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+}
+.notificationStyle3 {
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    padding: 5px 13px;
+    background: rgba(255, 215, 0, 0.57);
     color: white;
     font-size: 30px;
     border-radius: 0 0 20px 0;
@@ -114,8 +168,25 @@ and open the template in the editor.
   color: #ea0;
 }
 
+.StudentPage .rating:not(:checked) > label:hover,
+.StudentPage .rating:not(:checked) > label:hover ~ label,
+.StudentPage .rating> input:checked + label:hover,
+.StudentPage .rating> input:checked + label:hover ~ label,
+.StudentPage .rating> input:checked ~ label:hover,
+.StudentPage .rating> input:checked ~ label:hover ~ label,
+.StudentPage .rating> label:hover ~ input:checked ~ label {
+  color: #ddd;
+  cursor: default;
+}
+
 .rating > label:active {
   position:relative;
   top:2px;
   left:2px;
+}
+
+.StudentPage .rating > label:active {
+  position:static;
+  top:0px;
+  left:0px;
 }

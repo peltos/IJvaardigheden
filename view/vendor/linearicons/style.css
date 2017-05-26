@@ -373,7 +373,7 @@
 	content: "\e873";
 }
 .lnr-chevron-down:before {
-	content: "\e874";
+	content: "&#9660;";
 }
 .lnr-chevron-left:before {
 	content: "\e875";

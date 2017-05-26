@@ -3,6 +3,10 @@
 include_once 'view/googleAPI/gpConfig.php';
 include_once 'view/googleAPI/User.php';
 
+
+session_start();
+session_unset();
+
 if (isset($_GET['code'])) {
     $gClient->authenticate($_GET['code']);
     $_SESSION['token'] = $gClient->getAccessToken();

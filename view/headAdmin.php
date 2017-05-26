@@ -2,7 +2,6 @@
 if ($_SESSION['userData'] == '') {
     header("Location:index.php");
 }
-
 ?>
 
 <?php
@@ -20,8 +19,6 @@ if ($_SESSION['userData'] == '') {
     
     $sql  = ("SELECT role FROM users WHERE email = '".$_SESSION['userEmail']."' ");
     $result  = $conn->query($sql);
-    
-    
     ?>
 <!DOCTYPE html>
 <head>
@@ -51,15 +48,15 @@ if ($_SESSION['userData'] == '') {
                 echo 'layout-fullwidth';
                 }
             
-        
+            }
+        }
+        $conn->close();
+
 
         ?>
       ">
 <!-- WRAPPER -->
 <div id="wrapper">
-
-    
-
     <!-- NAVBAR -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="brand">
@@ -67,7 +64,21 @@ if ($_SESSION['userData'] == '') {
         </div>
         <div class="container-fluid">
             <?php
-            if($row["role"] >= 1){
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            // Check connection
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            } 
+            
+            $sql  = ("SELECT role FROM users WHERE email = '".$_SESSION['userEmail']."' ");
+            $result  = $conn->query($sql);
+            
+            if ($result->num_rows > 0) {
+            // output data of each row
+            while($row = $result->fetch_assoc()) {
+                $_SESSION["roleUser"] = $row["role"];
+                
+                if($row["role"] >= 1){
             ?>
                 <div class="navbar-btn">
                     <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
@@ -76,11 +87,12 @@ if ($_SESSION['userData'] == '') {
 
                 </form>
             <?php
-                        }
                     }
-                }
-            $conn->close();
 
+                }
+            }
+            $conn->close();
+                    
             ?>
 
             
@@ -91,7 +103,7 @@ if ($_SESSION['userData'] == '') {
 
                             <img src="
                                     <?php  echo $_SESSION['userPicture'] ?>
-                                " class="img-circle" alt="Avatar"> <span><?php  echo $_SESSION['userFName'] . ' ' . $_SESSION['userLName'] ?></span> <i class="icon-submenu lnr lnr-chevron-down"></i></a>
+                                " class="img-circle" alt="Avatar"> <span><?php  echo $_SESSION['userFName'] . ' ' . $_SESSION['userLName'] ?></span> </a>
                         <ul class="dropdown-menu">
                             <li><a href="https://oege.ie.hva.nl/~reinded003/view/googleAPI/logout.php"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
                         </ul>
