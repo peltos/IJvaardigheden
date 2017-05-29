@@ -121,9 +121,9 @@ if ($_SESSION['userData'] == '') {
                             <nav>
                                 <ul class="nav">
                                     <li><a href="admin.php" class="<?php  if(basename($_SERVER['PHP_SELF']) == 'admin.php') {echo 'active';} ?>"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-                                    <li><a href="student.php" class="<?php  if(basename($_SERVER['PHP_SELF']) == 'student.php') {echo 'active';} ?>"><i class="lnr lnr-home"></i> <span>Badges</span></a></li>
-                                    <!--<li><a href="addUser.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'addUser.php') {echo 'active';} ?>"><i class="lnr lnr-cog"></i> <span>Toevoegen gebruiker</span></a></li>-->
-                                    <!--<li><a href="SGAdmin.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'SGAdmin.php') {echo 'active';} ?>"><i class="lnr lnr-cog"></i> <span>Vakken</span></a></li>-->
+                                    <li><a href="student.php" class="<?php  if(basename($_SERVER['PHP_SELF']) == 'student.php') {echo 'active';} ?>"><i class="lnr lnr-linearicons"></i> <span>Badges</span></a></li>
+                                    <li><a href="addBadge.php" class="<?php  if(basename($_SERVER['PHP_SELF']) == 'addBadge.php') {echo 'active';} ?>"><i class="lnr lnr-inbox"></i> <span>Badge Toevoegen</span></a></li>
+                                    <li><a href="SGAdmin.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'SGAdmin.php') {echo 'active';} ?>"><i class="lnr lnr-cog"></i> <span>Vakken</span></a></li>
                                 </ul>
                             </nav>
                         </div>

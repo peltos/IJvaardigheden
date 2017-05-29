@@ -8,7 +8,13 @@ and open the template in the editor.
     Author     : peltos
 */
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+.selectImage img {
+    height:50px;
+}
 
+.badgeStyle img{
+    height:100px;
+}
 .rankNone {
     border: 5px solid white;
 }
