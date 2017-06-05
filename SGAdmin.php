@@ -14,15 +14,12 @@ require_once __DIR__.'/app/controller/controller_SG.php';
 //kijk met welke request type je te maken hebt
 $method = $_SERVER['REQUEST_METHOD'];
 
-
-
-
-$controller = new SGPostsController();
+$controller = new SchoolGroupFunctionController();
 
 //switch op de http methode
 switch ($method) {
     case 'GET':
-        $controller->SGAdmin();
+        $controller->getSchoolGroups();
         break;
 
     case 'PUT':
@@ -32,7 +29,7 @@ switch ($method) {
     case 'POST':
 
         if ($controller->writeForm($_POST)) {
-            header('Location:admin.php'); 
+            header('Location:SGAdmin.php');
         } else {
             require_once __DIR__.'/view/error.php';
         }

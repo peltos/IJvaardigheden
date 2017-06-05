@@ -1,16 +1,15 @@
 <?php
+session_start();
+session_unset();
 //Include GP config file && User class
 include_once 'view/googleAPI/gpConfig.php';
 include_once 'view/googleAPI/User.php';
 
 
-session_start();
-session_unset();
-
 if (isset($_GET['code'])) {
     $gClient->authenticate($_GET['code']);
     $_SESSION['token'] = $gClient->getAccessToken();
-    header('Location: ' . filter_var($redirectURL, FILTER_SANITIZE_URL));
+    header('location: ' . filter_var($redirectURL, FILTER_SANITIZE_URL));
 }
 
 if (isset($_SESSION['token'])) {
@@ -41,10 +40,12 @@ if ($gClient->getAccessToken()) {
     $_SESSION['userLName'] = $gpUserProfile['family_name'];
     $_SESSION['userPicture'] = $gpUserProfile['picture'];
     $_SESSION['userEmail'] = $gpUserProfile['email'];
+    
 
     //Render facebook profile data
     if (!empty($userData)) {
         header("Location:admin.php");
+        exit;
     } else {
         $output = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
     }

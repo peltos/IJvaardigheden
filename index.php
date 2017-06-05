@@ -15,8 +15,6 @@ require_once __DIR__.'/app/controller/controller_login.php';
 $method = $_SERVER['REQUEST_METHOD'];
 
 
-
-
  $controller = new controllerLogin();
 
 //switch op de http methode 
@@ -36,16 +34,3 @@ switch ($method) {
 
         break;
 }
- 
-
-
-
-
-
-
-
-
-
-    
-
-

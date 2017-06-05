@@ -1,25 +1,5 @@
-
-    <?php
-//    try {
-//    // trying to connect with database
-//    $pdoConnect = new PDO("mysql:host=oege.ie.hva.nl;dbname=zreinded003","reinded003","qS9Fu8G8Oo2BBA");
-//    } catch (PDOException $exc) {
-//    // catch the onnection problem
-//    echo $exc->getMessage();
-//    exit();
-//      }
-//    // result of the mysql select query
-//    $pdoResult = $pdoConnect->query("SELECT * FROM users WHERE ");
-//
-//     //displaying data from database mysql using foreach loop
-//     foreach ($pdoResult as $row)
-//     {
-//     echo "$row[0] - $row[1] - $row[2] - $row[3]<br>";
-//    }
-
-    $idUser = $_GET['edit'];
-
-?>
+<?php if (!$_SESSION["roleUser"] >= 1){ header('Location: ../student.php'); } ?>
+<?php $idUser = $_GET['edit']; ?>
 <?php include 'headAdmin.php'; ?>
 <!-- MAIN -->
 <div class="main">
@@ -178,7 +158,7 @@
  
                           $.ajax({
                               type:"post",
-                              url:"https://oege.ie.hva.nl/~reinded003/view/process.php",
+                              url:"/view/ajax/process.php",
                               data:"checkedVal="+checkedVal+"&checkedId="+checkedId+"&checkedEmail="+checkedEmail,
                               success:function(data){
                                  pathInfo.html(data);

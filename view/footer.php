@@ -13,5 +13,29 @@ javascript bestanden die ingeladen moeten worden.
     <script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
     <script src="view/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
     <script src="view/js/klorofil-common.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('.search-box input[type="text"]').on("keyup input", function(){
+            /* Get input value on change */
+            var inputVal = $(this).val();
+            var resultDropdown = $(this).siblings(".result");
+            if(inputVal.length){
+                $.get("/view/ajax/backend-search-pdo-format.php", {term: inputVal}).done(function(data){
+                    // Display the returned data in browser
+                    resultDropdown.html(data);
+                });
+            } else{
+                resultDropdown.empty();
+            }
+        });
+
+        // Set search input value on click of result item
+        $(document).on("click", ".result p", function(){
+            $(this).parents(".search-box").find('input[type="text"]').val($(this).text());
+            $(this).parent(".result").empty();
+        });
+    });
+    </script>
 </body>
 </html>

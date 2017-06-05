@@ -1,10 +1,10 @@
 <?php
 class User {
     
-    private $dbHost = "oege.ie.hva.nl";
-    private $dbUsername = "reinded003";
-    private $dbPassword = "qS9Fu8G8Oo2BBA";
-    private $dbName = "zreinded003";
+    private $dbHost = "ijburg-apps.nl.mysql";
+    private $dbUsername = "ijburg_apps_nl_ijburg06";
+    private $dbPassword = "YliA2644+";
+    private $dbName = "ijburg_apps_nl_ijburg06";
     private $userTbl = 'users';
 
     function __construct() {
@@ -33,7 +33,7 @@ class User {
             $prevResult = $this->db->query($prevQuery);
 
             if (preg_match("/[a-z]*+[0-9]/", $userData['email'])& strpos($userData['email'], '@gmail.com') !== false & strpos($userData['email'], ".") !== false | strpos($mystring, ".") == false) {
-                echo "leerling";
+               // echo "leerling";
                 if ($prevResult->num_rows > 0) {
                     //Update user data if already exists
                     $query = "UPDATE " . $this->userTbl . " SET email = '" . $email . "', oauth_uid = '" . $id . "', first_name = '" . $firstName . "', last_name = '" . $lastName. "', gender = '" . $gender . "', picture = '" . $picturePath . "', created = '" . date("Y-m-d H:i:s") . "', modified = '". date("Y-m-d H:i:s");         $update = $this->db->query($query);
@@ -42,9 +42,9 @@ class User {
                     $query = "INSERT INTO " . $this->userTbl . " SET email = '" . $email . "', oauth_uid = '" . $id . "', first_name = '" . $firstName . "', last_name = '" . $lastName. "', gender = '" . $gender . "', picture = '" . $picturePath . "', created = '" . date("Y-m-d H:i:s") . "', modified = '". date("Y-m-d H:i:s")."', role = '0'";
                     $insert = $this->db->query($query);
                 }
-                echo "Database updated";
+               // echo "Database updated";
             } else if (!preg_match("/[0-9]/", $userData['email']) & strpos($userData['email'], '@gmail.com' & strpos($userData['email'], ".") !== false | strpos($mystring, ".") == false)) {
-                echo "docent";
+              //  echo "docent";
                 if ($prevResult->num_rows > 0) {
                     //Update user data if already exists
                     $query = "UPDATE " . $this->userTbl . " SET email = '" . $email . "', oauth_uid = '" . $id . "', first_name = '" . $firstName . "', last_name = '" . $lastName. "', gender = '" . $gender . "', picture = '" . $picturePath . "', created = '" . date("Y-m-d H:i:s") . "', modified = '". date("Y-m-d H:i:s");   $update = $this->db->query($query);
@@ -52,13 +52,13 @@ class User {
                     //Insert user data
                     $query = "INSERT INTO " . $this->userTbl . " SET email = '" . $email . "', oauth_uid = '" . $id . "', first_name = '" . $firstName . "', last_name = '" . $lastName. "', gender = '" . $gender . "', picture = '" . $picturePath . "', created = '" . date("Y-m-d H:i:s") . "', modified = '". date("Y-m-d H:i:s")."', role = '1'";  $insert = $this->db->query($query);
                 }
-                echo "Databse updated";
+               // echo "Databse updated";
             } else if (strpos($userData['email'], '@gmail.com')) {
-                echo "Wel gmail.com, geen leerling/docent";
-                echo '<a href="http://ronpelt.synology.me/pad/view/googleAPI/logout.php"> logout </a>';
+              //  echo "Wel gmail.com, geen leerling/docent";
+               // echo '<a href="http://ronpelt.synology.me/pad/view/googleAPI/logout.php"> logout </a>';
             } else {
-                echo "Geen gmail.com";
-                echo '<a href="http://ronpelt.synology.me/pad/view/googleAPI/logout.php"> logout </a>';
+                //echo "Geen gmail.com";
+               // echo '<a href="http://ronpelt.synology.me/pad/view/googleAPI/logout.php"> logout </a>';
             }
 
             //Get user data from the database
@@ -71,5 +71,3 @@ class User {
     }
 
 }
-
-?>

@@ -11,7 +11,6 @@ class addBadgeController {
     }
 
     public function writeForm($post) {
-        print_r($post); // debug
 
         //TODO check POST
         return $this->ModelAddBadge->writePost($post['badge'],$post['Vak'],$post['Discriptie']);

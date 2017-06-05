@@ -16,6 +16,7 @@ unset($_SESSION['userEmail']);
 $gClient->revokeToken();
 
 //Destroy entire session
+
 session_destroy();
 
 //Redirect to homepage

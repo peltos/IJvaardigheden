@@ -1,4 +1,3 @@
-
 <?php include 'headAdmin.php'; ?>
 
         <!-- MAIN -->

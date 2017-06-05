@@ -29,7 +29,7 @@ switch ($method) {
     case 'POST':
 
         if ($controller->writeForm($_POST)) {
-            header('Location:admin.php'); 
+            header('Location:addBadge.php'); 
         } else {
             require_once __DIR__.'/view/error.php';
         }

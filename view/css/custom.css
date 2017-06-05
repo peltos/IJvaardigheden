@@ -8,10 +8,37 @@ and open the template in the editor.
     Author     : peltos
 */
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+.navbar-form .result{
+    width:200px;
+    position:absolute;
+    padding:0 10px;
+}
+.navbar-form .result img {
+    height: 40px;
+    border-radius: 20px;
+    float: left;
+    margin-right: 10px;
+}
+.navbar-form .result a {
+    margin-top: 10px;
+    display: block;
+}
+.navbar-form .result a p {
+    margin: 0;
+    padding: 10px 0;
+}
+.navbar-form .result a p:hover {
+    background: #F3F5F8;
+}
+.navbar-form .result a:first-child img + p{
+    margin-top: 20px;
+}
+.navbar-form .result a:last-child img + p{
+    margin-bottom: 10px;
+}
 .selectImage img {
     height:50px;
 }
-
 .badgeStyle img{
     height:100px;
 }

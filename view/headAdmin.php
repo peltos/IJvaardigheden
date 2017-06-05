@@ -1,14 +1,12 @@
 <?php
 if ($_SESSION['userData'] == '') {
-    header("Location:index.php");
+    header("location:../index.php");
 }
-?>
 
-<?php
-    $servername = "oege.ie.hva.nl";
-    $username = "reinded003";
-    $password = "qS9Fu8G8Oo2BBA";
-    $dbname = "zreinded003";
+    $servername = "ijburg-apps.nl.mysql";
+    $username = "ijburg_apps_nl_ijburg06";
+    $password = "YliA2644+";
+    $dbname = "ijburg_apps_nl_ijburg06";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -19,8 +17,7 @@ if ($_SESSION['userData'] == '') {
     
     $sql  = ("SELECT role FROM users WHERE email = '".$_SESSION['userEmail']."' ");
     $result  = $conn->query($sql);
-    ?>
-<!DOCTYPE html>
+    ?><!DOCTYPE html>
 <head>
     <title>IJ-vaardigheden - Admin</title>
     <meta charset="utf-8">
@@ -47,12 +44,9 @@ if ($_SESSION['userData'] == '') {
             if(!$row["role"] >= 1){
                 echo 'layout-fullwidth';
                 }
-            
             }
         }
         $conn->close();
-
-
         ?>
       ">
 <!-- WRAPPER -->
@@ -77,25 +71,23 @@ if ($_SESSION['userData'] == '') {
             // output data of each row
             while($row = $result->fetch_assoc()) {
                 $_SESSION["roleUser"] = $row["role"];
-                
                 if($row["role"] >= 1){
             ?>
                 <div class="navbar-btn">
                     <button type="button" class="btn-toggle-fullwidth"><i class="lnr lnr-arrow-left-circle"></i></button>
                 </div>
                 <form class="navbar-form navbar-left">
-
+                    <div class="search-box">
+                        <input type="text" class="form-control" autocomplete="off" placeholder="Zoeken..." />
+                        <div class="result panel"></div>
+                    </div>
                 </form>
             <?php
                     }
-
                 }
             }
             $conn->close();
-                    
             ?>
-
-            
             <div id="navbar-menu">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
@@ -105,7 +97,7 @@ if ($_SESSION['userData'] == '') {
                                     <?php  echo $_SESSION['userPicture'] ?>
                                 " class="img-circle" alt="Avatar"> <span><?php  echo $_SESSION['userFName'] . ' ' . $_SESSION['userLName'] ?></span> </a>
                         <ul class="dropdown-menu">
-                            <li><a href="https://oege.ie.hva.nl/~reinded003/view/googleAPI/logout.php"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
+                            <li><a href="googleAPI/logout.php"><i class="lnr lnr-exit"></i> <span>Logout</span></a></li>
                         </ul>
                     </li>
                 </ul>
@@ -115,18 +107,17 @@ if ($_SESSION['userData'] == '') {
     </nav>
     <!-- END NAVBAR -->
     
-                    <!-- LEFT SIDEBAR -->
-                    <div id="sidebar-nav" class="sidebar">
-                        <div class="sidebar-scroll">
-                            <nav>
-                                <ul class="nav">
-                                    <li><a href="admin.php" class="<?php  if(basename($_SERVER['PHP_SELF']) == 'admin.php') {echo 'active';} ?>"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
-                                    <li><a href="student.php" class="<?php  if(basename($_SERVER['PHP_SELF']) == 'student.php') {echo 'active';} ?>"><i class="lnr lnr-linearicons"></i> <span>Badges</span></a></li>
-                                    <li><a href="addBadge.php" class="<?php  if(basename($_SERVER['PHP_SELF']) == 'addBadge.php') {echo 'active';} ?>"><i class="lnr lnr-inbox"></i> <span>Badge Toevoegen</span></a></li>
-                                    <li><a href="SGAdmin.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'SGAdmin.php') {echo 'active';} ?>"><i class="lnr lnr-cog"></i> <span>Vakken</span></a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
+    <!-- LEFT SIDEBAR -->
+    <div id="sidebar-nav" class="sidebar">
+        <div class="sidebar-scroll">
+            <nav>
+                <ul class="nav">
+                    <li><a href="admin.php" class="<?php  if(basename($_SERVER['PHP_SELF']) == 'admin.php') {echo 'active';} ?>"><i class="lnr lnr-home"></i> <span>Dashboard</span></a></li>
+                    <li><a href="addBadge.php" class="<?php  if(basename($_SERVER['PHP_SELF']) == 'addBadge.php') {echo 'active';} ?>"><i class="lnr lnr-inbox"></i> <span>Badges Aanpassen</span></a></li>
+                    <li><a href="SGAdmin.php" class="<?php if(basename($_SERVER['PHP_SELF']) == 'SGAdmin.php') {echo 'active';} ?>"><i class="lnr lnr-cog"></i> <span>Klassen Aanpassen</span></a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
 
 
