@@ -13,7 +13,7 @@ session_start();
 try{
     if(isset($_REQUEST['term'])){
         // create prepared statement
-        $sql = "SELECT * FROM users WHERE first_name LIKE :term OR last_name LIKE :term";
+        $sql = "SELECT * FROM users WHERE first_name LIKE :term OR last_name LIKE :term OR schoolGroup_schoolGroup LIKE :term" ;
         $stmt = $pdo->prepare($sql);
         $term = $_REQUEST['term'] . '%';
         // bind parameters to statement
@@ -25,7 +25,15 @@ try{
             while($row = $stmt->fetch()){
                 echo '<a href="editUser.php?edit=' . $userCount . '">';
                     echo '<img src="'.$row['picture'].'">';
-                    echo '<p>' . $row['first_name'] . ' ' . $row['last_name'] .'</p>';
+                    echo '<p>' . $row['first_name'] . ' ' . $row['last_name'];
+                    if ($row['role'] == 0){
+                        echo '<br> Klas: '. $row['schoolGroup_schoolGroup'];
+                    }else if($row['role'] == 1){
+                        echo '<br> Leraar';
+                    }else{
+                        echo '<br> admin';
+                    }
+                    echo '</p>';
                 echo '</a>';
                 
                 $_SESSION["fName" . $userCount] = $row['first_name'];

@@ -5,7 +5,7 @@
             <url>view/user.php</url>
             <bookmark id="2">
                 <name/>
-                <line>9</line>
+                <line>7</line>
                 <key/>
             </bookmark>
         </file>
@@ -20,15 +20,11 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/PAD/SGAdmin.php</file>
             <file>file:/C:/wamp64/www/PAD/view/badges.php</file>
-            <file>file:/C:/wamp64/www/PAD/editUser.php</file>
-            <file>file:/C:/wamp64/www/PAD/app/controller/controller_edituser.php</file>
-            <file>file:/C:/wamp64/www/PAD/app/controller/controller_SG.php</file>
-            <file>file:/C:/wamp64/www/PAD/app/model/model_SG.php</file>
+            <file>file:/C:/wamp64/www/PAD/view/addSchoolGroup.php</file>
+            <file>file:/C:/wamp64/www/PAD/view/badgeView.php</file>
             <file>file:/C:/wamp64/www/PAD/view/user.php</file>
             <file>file:/C:/wamp64/www/PAD/view/editUser.php</file>
-            <file>file:/C:/wamp64/www/PAD/app/model/model_editUser.php</file>
         </group>
     </open-files>
 </project-private>

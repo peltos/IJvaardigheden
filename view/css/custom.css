@@ -25,7 +25,6 @@ and open the template in the editor.
 }
 .navbar-form .result a p {
     margin: 0;
-    padding: 10px 0;
 }
 .navbar-form .result a p:hover {
     background: #F3F5F8;
