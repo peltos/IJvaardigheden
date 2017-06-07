@@ -34,9 +34,28 @@
                             <div class="profileContainer">
                             <form method="post">
                                 <div class="form-group">
-                                        <label for="cname">overig</label>
+                                    <?php if ($_SESSION["role" . $idUser] == 0) {?>
+                                        <label for="sname">Klas</label>
+                                        <select class="form-control" name="schoolgroup">
+                                            <?php 
+                                            
+                                                foreach ($readSGList as $value) {
+                                                    foreach ($readUsersList as $value2) {
+                                                        if ($value2['schoolGroup_schoolGroup'] == $value['schoolGroup']){
+                                                            echo '<option selected="selected" value="'.$value['schoolGroup'].'">'.$value['schoolGroup']."</option>";
+                                                        }else{
+                                                            echo '<option  value="'.$value['schoolGroup'].'">'.$value['schoolGroup']."</option>";
+                                                        }
+                                                    }
+                                                }
+                                            ?>
+                                        </select>
+                                        
+                                        <label for="cname">Overig</label>
                                         <textarea class="form-control" id="otherInfo" name="otherInfo"><?php echo $_SESSION["otherInfo" . $idUser] ?></textarea>
-                                        <button  type = "submit">Submit</button>
+                                        <br>
+                                        <button class="btn btn-primary btn-block"  type = "submit">Submit</button>
+                                        <?php } ?>
                                 </div>
                             </form>
                                 
@@ -47,73 +66,74 @@
                 </div>
             </div>
             <?php
+            if ($_SESSION["role" . $idUser] == 0) {
+                // Alle gebruikers worden ingeladen
 
-            // Alle gebruikers worden ingeladen
+                $listCount = 0;
+                $starCount = 0;
+                echo '<div class="row">';
+                foreach ($readBadgeList as $value) {
 
-            $listCount = 0;
-            $starCount = 0;
-            echo '<div class="row">';
-            foreach ($readList as $value) {
+                    // voor elke 6 gebruikers wordt er een nieuwe Row aangemaakt
+                    if ($listCount == 4) {
+                        echo '</div>';
+                        echo '<div class="row">';
+                        $listCount = 0;
+                    }
+                    echo '<div class="col-md-3">';
+                                echo '<div class="panel ';
+                                if ($value['done'] == 3) {echo 'rankGold';} 
+                                else if($value['done'] == 2){echo 'rankSilver';}
+                                else if($value['done'] == 1){echo 'rankBrown';}
+                                else {echo 'rankNone';}
 
-                // voor elke 6 gebruikers wordt er een nieuwe Row aangemaakt
-                if ($listCount == 4) {
-                    echo '</div>';
-                    echo '<div class="row">';
-                    $listCount = 0;
-                }
-                echo '<div class="col-md-3">';
-                            echo '<div class="panel ';
-                            if ($value['done'] == 3) {echo 'rankGold';} 
-                            else if($value['done'] == 2){echo 'rankSilver';}
-                            else if($value['done'] == 1){echo 'rankBrown';}
-                            else {echo 'rankNone';}
-                            
-                            echo '">';
-                                echo '<div class="panel-body relativePanel">';
-                                    echo '<center class="badgeCenter">';
-                                        echo '<div class="imageBadgeContainer">';
-                                            echo '<img class="imageBadge" src="view/img/' . $value['pathToImage'] . '.png">';
-                                        echo '</div>';
-                                        echo '<p>' . $value['subject_subject']. '</p> ';
-                                        echo '<p>' . $value['description']. '</p>';
-                                    echo '</center>  ';
-                                    echo '<hr>';
-                                    echo '<form class="starRating" id="'.$value['idbadges'].'">';
-                                        echo '<fieldset class="rating closeRow" name="'.$value['idbadges'].'">';
-                                            echo '<input type="radio" class="starcheck input0" id="cross-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="0" ';
-                                            if ($value['done'] == 0 || $value['done'] == null) {echo 'checked';}
-                                            echo '/>';
-                                            echo '<label value="'.$value['idbadges'].'" for="cross-'.$value['idbadges'].'" title="niet"><span>&#216;</span></label>';
-                                        echo '</fieldset>';
-                                        echo '<fieldset class="rating starRow" name="'.$value['idbadges'].'">';
-                                            echo '<input type="radio" class="starcheck input3" id="star3-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="3" ';
-                                            if ($value['done'] == 3) {echo 'checked';}
-                                            echo '/>';
-                                            echo '<label value="'.$value['idbadges'].'" for="star3-'.$value['idbadges'].'" title="3"><span>&#9733</span></label>';
+                                echo '">';
+                                    echo '<div class="panel-body relativePanel">';
+                                        echo '<center class="badgeCenter">';
+                                            echo '<div class="imageBadgeContainer">';
+                                                echo '<img class="imageBadge" src="view/img/' . $value['pathToImage'] . '.png">';
+                                            echo '</div>';
+                                            echo '<p>' . $value['subject_subject']. '</p> ';
+                                            echo '<p>' . $value['description']. '</p>';
+                                        echo '</center>  ';
+                                        echo '<hr>';
+                                        echo '<form class="starRating" id="'.$value['idbadges'].'">';
+                                            echo '<fieldset class="rating closeRow" name="'.$value['idbadges'].'">';
+                                                echo '<input type="radio" class="starcheck input0" id="cross-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="0" ';
+                                                if ($value['done'] == 0 || $value['done'] == null) {echo 'checked';}
+                                                echo '/>';
+                                                echo '<label value="'.$value['idbadges'].'" for="cross-'.$value['idbadges'].'" title="niet"><span>&#216;</span></label>';
+                                            echo '</fieldset>';
+                                            echo '<fieldset class="rating starRow" name="'.$value['idbadges'].'">';
+                                                echo '<input type="radio" class="starcheck input3" id="star3-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="3" ';
+                                                if ($value['done'] == 3) {echo 'checked';}
+                                                echo '/>';
+                                                echo '<label value="'.$value['idbadges'].'" for="star3-'.$value['idbadges'].'" title="3"><span>&#9733</span></label>';
 
-                                            echo '<input type="radio" class="starcheck input2" id="star2-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="2" ';
-                                            if ($value['done'] == 2) {echo 'checked';}
-                                            echo '/>';
-                                            echo '<label value="'.$value['idbadges'].'" for="star2-'.$value['idbadges'].'" title="2"><span>&#9733</span></label>';
+                                                echo '<input type="radio" class="starcheck input2" id="star2-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="2" ';
+                                                if ($value['done'] == 2) {echo 'checked';}
+                                                echo '/>';
+                                                echo '<label value="'.$value['idbadges'].'" for="star2-'.$value['idbadges'].'" title="2"><span>&#9733</span></label>';
 
-                                            echo '<input type="radio" class="starcheck input1" id="star1-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="1" ';
-                                            if ($value['done'] == 1) {echo 'checked';}
-                                            echo '/>';
-                                            echo '<label value="'.$value['idbadges'].'" for="star1-'.$value['idbadges'].'" title="1"><span>&#9733</span></label>';
-                                        echo '</fieldset>';
-                                        echo '<div class="infoBadge" > </div>';
-                                        $starCount++;
+                                                echo '<input type="radio" class="starcheck input1" id="star1-'.$value['idbadges'].'" name="rating'.$value['idbadges'].'" value="1" ';
+                                                if ($value['done'] == 1) {echo 'checked';}
+                                                echo '/>';
+                                                echo '<label value="'.$value['idbadges'].'" for="star1-'.$value['idbadges'].'" title="1"><span>&#9733</span></label>';
+                                            echo '</fieldset>';
+                                            echo '<div class="infoBadge" > </div>';
+                                            $starCount++;
 
-                                    echo '</form>';
+                                        echo '</form>';
+                                    echo '</div>';
                                 echo '</div>';
                             echo '</div>';
-                        echo '</div>';
 
 
-                $listCount++;
+                    $listCount++;
 
+                }
+                echo '</div>';
             }
-        echo '</div>';
             ?>
         </div>
     </div>

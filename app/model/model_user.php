@@ -23,5 +23,9 @@ class ModelUser {
         $this->database->query('SELECT * FROM users');
         return $this->database->resultset();
     }
+    public function getUser() {
+        $this->database->query('SELECT * FROM users WHERE oauth_uid = '.$_SESSION['userID']);
+        return $this->database->resultset();
+    }
 
 }

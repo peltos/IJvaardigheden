@@ -24,12 +24,6 @@ class model_SG{
         }
     }
 
-    public function deleteSchoolGroupQuery($groupToDelete) {
-        $this->database->query('DELETE FROM schoolGroup WHERE schoolGroup = $counter ');
-        $this->database->bind(':groupToDelete', $groupToDelete);
-
-    }
-
     public function readSchoolGroupList() {
         $this->database->query('SELECT * FROM schoolGroup');
         return $this->database->resultset();

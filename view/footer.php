@@ -37,5 +37,22 @@ javascript bestanden die ingeladen moeten worden.
         });
     });
     </script>
+    <script type="text/javascript">
+        $(document).on('click', '.panel-body button', function () {       
+            var email = '<?php echo $_SESSION['userEmail']?>';
+            var checkedName = $('.schoolgroupStarter option:selected').text();
+            var pathInfo=$(".selectClassOverlay .infoBadge");
+            
+
+            $.ajax({
+                type:"post",
+                url:"/view/ajax/chooseSG.php",
+                data:"checkedName="+checkedName+"&email="+email,
+                success:function(data){
+                   $(".selectClassOverlay").css('display','none')
+                }
+            });
+        });
+    </script>
 </body>
 </html>

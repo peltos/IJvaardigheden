@@ -3,7 +3,8 @@
 
   $checkedName=$_POST["checkedName"];
 
-  $query=mysqli_query($con,"DELETE FROM schoolGroup WHERE schoolGroup = '$checkedName';");
+  $query=mysqli_query($con,"UPDATE users SET schoolGroup_schoolGroup = null WHERE schoolGroup_schoolGroup = '$checkedName';");
+  $query2=mysqli_query($con,"DELETE FROM schoolGroup WHERE schoolGroup = '$checkedName';");
  
   if($query){
     echo "&#10003;";

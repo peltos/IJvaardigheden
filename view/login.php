@@ -44,6 +44,7 @@ if ($gClient->getAccessToken()) {
 
     //Render facebook profile data
     if (!empty($userData)) {
+        
         header("Location:admin.php");
         exit;
     } else {

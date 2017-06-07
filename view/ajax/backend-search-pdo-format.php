@@ -23,7 +23,7 @@ try{
         if($stmt->rowCount() > 0){
             $userCount = 0;
             while($row = $stmt->fetch()){
-                echo '<a href="editUser.php?edit=' . $userCount . '">';
+                echo '<a href="editUser.php?edit=' . $row['oauth_uid'] . '">';
                     echo '<img src="'.$row['picture'].'">';
                     echo '<p>' . $row['first_name'] . ' ' . $row['last_name'];
                     if ($row['role'] == 0){
@@ -36,12 +36,12 @@ try{
                     echo '</p>';
                 echo '</a>';
                 
-                $_SESSION["fName" . $userCount] = $row['first_name'];
-                $_SESSION["lName" . $userCount] = $row['last_name'];
-                $_SESSION["picture" . $userCount] = $row['picture'];
-                $_SESSION["email" . $userCount] = $row['email'];
-                $_SESSION["role" . $userCount] = $row['role'];
-                $_SESSION["otherInfo" . $userCount] = $row['otherInfo'];
+                $_SESSION["fName" . $row['oauth_uid']] = $row['first_name'];
+                $_SESSION["lName" . $row['oauth_uid']] = $row['last_name'];
+                $_SESSION["picture" . $row['oauth_uid']] = $row['picture'];
+                $_SESSION["email" . $row['oauth_uid']] = $row['email'];
+                $_SESSION["role" . $row['oauth_uid']] = $row['role'];
+                $_SESSION["otherInfo" . $row['oauth_uid']] = $row['otherInfo'];
                 
                 $userCount++;
             }

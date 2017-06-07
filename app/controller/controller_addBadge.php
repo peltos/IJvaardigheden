@@ -19,7 +19,6 @@ class addBadgeController {
 
     public function getBadges() {
         $readList = $this->ModelAddBadge->readBadges();
-        
         $readVakken = $this->ModelAddBadge->readVakken();
 //        print_r($readList);
         require_once './view/badgeView.php';

@@ -13,14 +13,16 @@ class controllerEditUser {
         // print_r($post); // debug
 
         //TODO check POST
-        return $this->ModelEditUser->writePost($post['otherInfo']);
+        return $this->ModelEditUser->writePost($post['otherInfo'],$post['schoolgroup']);
 
     }
     public function index() {
         $idUser = $_GET['edit'];
         $UserEmail = $_SESSION["email" . $idUser];
-        $readList = $this->ModelEditUser->readSchoolGroupList($UserEmail);
-//        print_r($readList);
+        $readBadgeList = $this->ModelEditUser->readBadgeList($UserEmail);
+        $readSGList = $this->ModelEditUser->readSchoolGroupList();
+        $readUsersList = $this->ModelEditUser->readUsersList($UserEmail);
+        //print_r($readSGList);
         require_once './view/editUser.php';
     }
 
