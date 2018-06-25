@@ -1,6 +1,5 @@
 <?php
 session_start();
-session_unset();
 //Include GP config file && User class
 include_once 'view/googleAPI/gpConfig.php';
 include_once 'view/googleAPI/User.php';
@@ -99,7 +98,7 @@ if ($gClient->getAccessToken()) {
     <!-- Javascript -->
     <script src="view/vendor/jquery/jquery.min.js"></script>
     <script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="view/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="view/js/klorofil-common.js"></script>
+<!--    <script src="view/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>-->
+<!--    <script src="view/js/klorofil-common.js"></script>-->
 </body>
 </html>

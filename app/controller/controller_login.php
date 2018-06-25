@@ -10,7 +10,7 @@ class controllerLogin {
     }
 
     public function index() {
-        require_once './view/login.php'; 
+        require_once './view/user.php';
     }
 
 }

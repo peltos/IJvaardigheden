@@ -1,8 +1,8 @@
 <?php
-$servername = "ijburg-apps.nl.mysql";
-$username = "ijburg_apps_nl_ijburg06";
-$password = "YliA2644+";
-$dbname = "ijburg_apps_nl_ijburg06";
+$servername = "ronpelt.synology.me";
+$username = "root";
+$password = "aoIr7f4olbOosmUf";
+$dbname = "pad";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
@@ -10,7 +10,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = ("SELECT role, schoolGroup_schoolGroup FROM users WHERE email = '" . $_SESSION['userEmail'] . "' ");
+$sql = ("SELECT role, schoolGroup FROM users WHERE email = '" . $_SESSION['userEmail'] . "' ");
 $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
@@ -30,7 +30,7 @@ include 'headAdmin.php';
 
 <!-- MAIN -->
 <div class="main">
-    <!-- MAIN CONTENT -->
+    <!-- MAIN readVakkenCONTENT -->
     <div class="main-content">
         <div class="container-fluid">
             <h3 class="page-title">Gebruikers</h3>

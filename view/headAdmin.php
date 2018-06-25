@@ -1,12 +1,11 @@
 <?php
-if ($_SESSION['userData'] == '') {
-    header("location:../index.php");
-}
 
-$servername = "ijburg-apps.nl.mysql";
-$username = "ijburg_apps_nl_ijburg06";
-$password = "YliA2644+";
-$dbname = "ijburg_apps_nl_ijburg06";
+
+$servername = "ronpelt.synology.me";
+$username = "root";
+$password = "aoIr7f4olbOosmUf";
+$dbname = "pad";
+
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);

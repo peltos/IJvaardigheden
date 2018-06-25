@@ -1,7 +1,4 @@
-<?php if (!$_SESSION["roleUser"] == 0){ 
-    header('Location: admin.php'); 
-}
-?>
+
 <?php include 'headAdmin.php'; ?>
 
         <!-- MAIN -->

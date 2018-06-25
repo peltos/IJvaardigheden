@@ -1,4 +1,4 @@
-<?php if (!$_SESSION["roleUser"] >= 1){ header('Location: ../student.php'); } ?>
+
 <?php include 'headAdmin.php'; ?>
 
 

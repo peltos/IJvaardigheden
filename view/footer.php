@@ -11,8 +11,8 @@ javascript bestanden die ingeladen moeten worden.
     <!-- Javascript -->
     <script src="view/vendor/jquery/jquery.min.js"></script>
     <script src="view/vendor/bootstrap/js/bootstrap.min.js"></script>
-    <script src="view/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-    <script src="view/js/klorofil-common.js"></script>
+<!--    <script src="view/vendor/jquery-slimscroll/jquery.slimscroll.min.js"></script>-->
+<!--    <script src="view/js/klorofil-common.js"></script>-->
     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script type="text/javascript">
     $(document).ready(function(){
@@ -38,7 +38,7 @@ javascript bestanden die ingeladen moeten worden.
     });
     </script>
     <script type="text/javascript">
-        $(document).on('click', '.panel-body button', function () {       
+        $(document).on('click', '.panel-body label', function () {
             var email = '<?php echo $_SESSION['userEmail']?>';
             var checkedName = $('.schoolgroupStarter option:selected').text();
             var pathInfo=$(".selectClassOverlay .infoBadge");
@@ -46,7 +46,7 @@ javascript bestanden die ingeladen moeten worden.
 
             $.ajax({
                 type:"post",
-                url:"/view/ajax/chooseSG.php",
+                url:"/PAD-IJvaardigheden/view/ajax/chooseSG.php",
                 data:"checkedName="+checkedName+"&email="+email,
                 success:function(data){
                    $(".selectClassOverlay").css('display','none')
