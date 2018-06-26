@@ -13,7 +13,7 @@ class addBadgeController {
     public function writeForm($post) {
 
         //TODO check POST
-        return $this->ModelAddBadge->writePost($post['badge'],$post['Vak'],$post['Discriptie']);
+//        return $this->ModelAddBadge->writePost($post['badge'],$post['Vak'],$post['Discriptie']);
 
     }
 

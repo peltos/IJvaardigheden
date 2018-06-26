@@ -1,5 +1,10 @@
 <?php
-  $con=mysqli_connect("ijburg-apps.nl.mysql","ijburg_apps_nl_ijburg06","YliA2644+","ijburg_apps_nl_ijburg06");
+include_once '../../config/config.php';
+include_once '../../app/model/database_pdo.php';
+
+session_start();
+
+  $con=mysqli_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
   $checkedName=$_POST["checkedName"];
 

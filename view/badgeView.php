@@ -46,7 +46,7 @@
                                 <label for="cname">Beschrijving</label>
                                 <input type="text" class="form-control" id="discriptie" name="Discriptie" placeholder="Geef hier de beschrijving">
                             </div>
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Toevoegen </button>
+                            <button type="submit" class="btn btn-primary" disabled><i class="fa fa-plus-circle"></i> Toevoegen </button>
                         </form>
                         <?php
 
@@ -70,7 +70,7 @@
                                             echo '<td class="'.$value['idbadges'].'"><center><img src="view/img/'.$value['pathToImage'].'.png"/></center></td>';
                                             echo '<td class="subject">'.$value['subject_subject'].'</td>';
                                             echo '<td class="desc">'.$value['description'].'</td>';
-                                            echo '<td><button type="button" class="btn btn-danger btn-badge"><i class="fa fa-trash-o"></i> Verwijderen</button><div class="infoBadge" > </div></td>';
+                                            echo '<td><button type="button" class="btn btn-danger btn-badge" disabled><i class="fa fa-trash-o"></i> Verwijderen</button><div class="infoBadge" > </div></td>';
                                             
                                         echo '</tr>';
                                     }
@@ -84,29 +84,29 @@
         </div>
     </div>
 <script src="view/vendor/jquery/jquery.min.js"></script>
-<script>
-    $(document).ready(function(){
-        $(document).on('click', '.btn-badge', function () {
-            var alert = confirm("Deze badge wordt permanent verwijderd. Weet u het zeker?");
-            if (alert == true) {
-                var checkedSubject = $(this).parent().parent().children(".subject").text(); 
-                var checkedDesc = $(this).parent().parent().children(".desc").text(); 
-                var checkedID = $(this).parent().parent().children("td").attr("class"); 
-                var pathInfo=$(this).siblings(".infoBadge");
-                var remove=$(this).parent().parent().remove("tr");
-
-                $.ajax({
-                      type:"post",
-                      url:"/view/ajax/deleteBadge.php",
-                      data:"checkedSubject="+checkedSubject+"&checkedDesc="+checkedDesc+"&checkedID="+checkedID,
-                      success:function(data){
-                          remove;
-                      }
-
-                });
-            } else {}
-        });
-   });
-
-</script>
+<!--<script>-->
+<!--    $(document).ready(function(){-->
+<!--        $(document).on('click', '.btn-badge', function () {-->
+<!--            var alert = confirm("Deze badge wordt permanent verwijderd. Weet u het zeker?");-->
+<!--            if (alert == true) {-->
+<!--                var checkedSubject = $(this).parent().parent().children(".subject").text(); -->
+<!--                var checkedDesc = $(this).parent().parent().children(".desc").text(); -->
+<!--                var checkedID = $(this).parent().parent().children("td").attr("class"); -->
+<!--                var pathInfo=$(this).siblings(".infoBadge");-->
+<!--                var remove=$(this).parent().parent().remove("tr");-->
+<!---->
+<!--                $.ajax({-->
+<!--                      type:"post",-->
+<!--                      url:"--><?php //echo URL ?>///view/ajax/deleteBadge.php",
+//                      data:"checkedSubject="+checkedSubject+"&checkedDesc="+checkedDesc+"&checkedID="+checkedID,
+//                      success:function(data){
+//                          remove;
+//                      }
+//
+//                });
+//            } else {}
+//        });
+//   });
+//
+//</script>
 <?php include 'footer.php'; ?>

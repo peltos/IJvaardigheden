@@ -5,11 +5,10 @@
  * Date: 20-3-2017
  * Time: 12:29
  */
-session_start();
 
 include_once './config/config.php';
 include_once './app/model/database_pdo.php';
-require_once __DIR__.'/app/controller/controller_SG.php';
+require_once './app/controller/controller_SG.php';
 
 //kijk met welke request type je te maken hebt
 $method = $_SERVER['REQUEST_METHOD'];
@@ -31,7 +30,7 @@ switch ($method) {
         if ($controller->writeForm($_POST)) {
             header('Location:SGAdmin.php');
         } else {
-            require_once __DIR__.'/view/error.php';
+            require_once URL.'/view/error.php';
         }
         break;
 

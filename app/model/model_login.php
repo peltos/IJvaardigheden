@@ -19,15 +19,15 @@ class ModelLogin {
         $this->database = new DatabasePDO();
     }
 
-    public function writePost($email, $firstName, $insertion, $lastName, $password, $role, $schoolGroup) {
-        $this->database->query('INSERT INTO user (email, firstName, insertion, lastName, password, role, schoolGroup) VALUES (:email, :firstName, :insertion, :lastName, :password, :role, :schoolGroup)');
+    public function writePost($email, $firstName, $insertion, $lastName, $password, $role, $schoolGroup_schoolGroup) {
+        $this->database->query('INSERT INTO user (email, firstName, insertion, lastName, password, role, schoolGroup_schoolGroup) VALUES (:email, :firstName, :insertion, :lastName, :password, :role, :school_group)');
         $this->database->bind(':email', $email);
         $this->database->bind(':firstName', $firstName);
         $this->database->bind(':insertion', $insertion);
         $this->database->bind(':lastName', $lastName);
         $this->database->bind(':password', $password);
         $this->database->bind(':role', $role);
-        $this->database->bind(':schoolGroup', $schoolGroup);
+        $this->database->bind(':schoolGroup_schoolGroup', $schoolGroup_schoolGroup);
         if ($this->database->execute()) {
             return true;
         } else {

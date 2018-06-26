@@ -1,59 +1,3 @@
-<?php
-session_start();
-//Include GP config file && User class
-include_once 'view/googleAPI/gpConfig.php';
-include_once 'view/googleAPI/User.php';
-
-
-if (isset($_GET['code'])) {
-    $gClient->authenticate($_GET['code']);
-    $_SESSION['token'] = $gClient->getAccessToken();
-    header('location: ' . filter_var($redirectURL, FILTER_SANITIZE_URL));
-}
-
-if (isset($_SESSION['token'])) {
-    $gClient->setAccessToken($_SESSION['token']);
-}
-
-if ($gClient->getAccessToken()) {
-    //Get user profile data from google
-    $gpUserProfile = $google_oauthV2->userinfo->get();
-
-    //Initialize User class
-    $user = new User();
-
-    //Insert or update user data to the database
-    $gpUserData = array(
-        'oauth_uid' => $gpUserProfile['id'],
-        'first_name' => $gpUserProfile['given_name'],
-        'last_name' => $gpUserProfile['family_name'],
-        'email' => $gpUserProfile['email'],
-        'gender' => $gpUserProfile['gender'],
-        'picture' => $gpUserProfile['picture']
-    );
-    $userData = $user->checkUser($gpUserData);
-
-    //Storing user data into session
-    $_SESSION['userData'] = $userData;
-    $_SESSION['userFName'] = $gpUserProfile['given_name'];
-    $_SESSION['userLName'] = $gpUserProfile['family_name'];
-    $_SESSION['userPicture'] = $gpUserProfile['picture'];
-    $_SESSION['userEmail'] = $gpUserProfile['email'];
-    
-
-    //Render facebook profile data
-    if (!empty($userData)) {
-        
-        header("Location:admin.php");
-        exit;
-    } else {
-        $output = '<h3 style="color:red">Some problem occurred, please try again.</h3>';
-    }
-} else {
-    $authUrl = $gClient->createAuthUrl();
-    $output = '<a href="' . filter_var($authUrl, FILTER_SANITIZE_URL) . '"><img class="loginGoogleImage" src="view/googleAPI/images/glogin.png" alt=""/></a>';
-}
-?>
 <head>
     <title>Login</title>
     <meta charset="utf-8">
@@ -80,7 +24,9 @@ if ($gClient->getAccessToken()) {
                 <div class="auth-box ">
                     <div class="left">
                         <div class="content">
-                            <div><?php echo $output; ?></div>
+                            <a href="<?php echo URL ?>/admin.php">
+                                <img class="loginGoogleImage" src="<?php echo URL ?>/view/img/glogin.png"?/>
+                            </a>
                         </div>
                     </div>
                     <div class="right">

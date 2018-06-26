@@ -29,7 +29,7 @@ class model_addBadge{
     }
 
     public function deleteSchoolGroupQuery($groupToDelete) {
-        $this->database->query('DELETE FROM schoolGroup WHERE schoolGroup = $counter ');
+        $this->database->query('DELETE FROM schoolGroup WHERE schoolGroup_schoolGroup = $counter ');
         $this->database->bind(':groupToDelete', $groupToDelete);
 
     }

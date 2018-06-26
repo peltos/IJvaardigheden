@@ -13,7 +13,7 @@ class SchoolGroupFunctionController {
     public function writeForm($post) {
 
         //TODO check POST
-        return $this->ModelAddSG->writePost($post['groupName']);
+//        return $this->ModelAddSG->writePost($post['groupName']);
 
     }
 

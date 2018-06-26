@@ -16,8 +16,9 @@ and open the template in the editor.
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.75);
+    background: rgba(0, 0, 0, 0.75);
 }
+
 .selectClassOverlay .container-fluid .panel {
     padding: 0;
     position: fixed;
@@ -29,57 +30,79 @@ and open the template in the editor.
     margin-left: -7.5em;
 }
 
-.navbar-form .result{
-    width:200px;
-    position:absolute;
-    padding:0 10px;
+.navbar-form .result {
+    width: 200px;
+    position: absolute;
+    padding: 0 10px;
 }
-.navbar-form .result img {
+
+.navbar-form .result div img {
     height: 40px;
+    width: 40px;
     border-radius: 20px;
     float: left;
     margin-right: 10px;
 }
+
+.navbar-form .result img {
+    width:100%;
+    height:100%;
+    object-fit: cover;
+}
+
 .navbar-form .result a {
     margin-top: 10px;
     display: block;
 }
+
 .navbar-form .result a p {
     margin: 0;
 }
+
 .navbar-form .result a p:hover {
     background: #F3F5F8;
 }
-.navbar-form .result a:first-child img + p{
+
+.navbar-form .result a:first-child img + p {
     margin-top: 20px;
 }
-.navbar-form .result a:last-child img + p{
+
+.navbar-form .result a:last-child img + p {
     margin-bottom: 10px;
 }
+
 .selectImage img {
-    height:50px;
+    height: 50px;
 }
-.badgeStyle img{
-    height:100px;
+
+.badgeStyle img {
+    height: 100px;
 }
+
 .rankNone {
     border: 5px solid white;
 }
+
 .rankBrown {
     border: 5px solid rgba(165, 105, 42, 0.44);
 }
+
 .rankSilver {
     border: 5px solid rgba(192, 192, 192, 0.71);
 }
-.rankGold{
+
+.rankGold {
     border: 5px solid rgba(255, 215, 0, 0.57);
 }
-.starColor{
+
+.starColor {
     color: #49af00;
 }
-.noneColor{
+
+.noneColor {
     color: #ff7700;
 }
+
 /* profile pagina*/
 
 .profilePic {
@@ -90,20 +113,26 @@ and open the template in the editor.
     float: left;
     margin: 20px 40px 20px 0;
 }
+
 .profilePic img {
     height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
-.profileContainer{
-    width:calc(50% - 95px);
-     float:left;
+
+.profileContainer {
+    width: calc(50% - 95px);
+    float: left;
 }
-.profileContainer p{
+
+.profileContainer p {
     margin: 20.5px 0 12.5px;
 }
-    
+
 .profileContainer textarea {
     width: 100%;
 }
+
 /* einde profile pagina*/
 
 .notificationStyle0 {
@@ -118,6 +147,7 @@ and open the template in the editor.
     border-right: 2px solid white;
     border-bottom: 2px solid white;
 }
+
 .notificationStyle1 {
     position: absolute;
     top: -1px;
@@ -130,6 +160,7 @@ and open the template in the editor.
     border-right: 2px solid white;
     border-bottom: 2px solid white;
 }
+
 .notificationStyle2 {
     position: absolute;
     top: -1px;
@@ -142,6 +173,7 @@ and open the template in the editor.
     border-right: 2px solid white;
     border-bottom: 2px solid white;
 }
+
 .notificationStyle3 {
     position: absolute;
     top: -1px;
@@ -154,12 +186,22 @@ and open the template in the editor.
     border-right: 2px solid white;
     border-bottom: 2px solid white;
 }
+
 .relativePanel {
     position: relative;
 }
-.imageUser{
+
+.imageUser-container {
     width: 100%;
+    height:100px;
 }
+
+.imageUser {
+    width: 100%;
+    height:100%;
+    object-fit: cover;
+}
+
 .imageBadgeContainer {
     width: 120px;
     height: 120px;
@@ -169,7 +211,8 @@ and open the template in the editor.
     max-width: 100%;
     max-height: 100%;
 }
-.loginGoogleImage{
+
+.loginGoogleImage {
     width: 100%;
 }
 
@@ -180,70 +223,71 @@ and open the template in the editor.
 }
 
 .starRow,
-.closeRow{
-    float:left;
+.closeRow {
+    float: left;
 }
-.starRow > input:checked ~ label{
+
+.starRow > input:checked ~ label {
     color: #49af00 !important;
 }
 
 .rating:not(:checked) > input {
-  position:absolute;
-  top:-9999px;
-  clip:rect(0,0,0,0);
+    position: absolute;
+    top: -9999px;
+    clip: rect(0, 0, 0, 0);
 }
 
 .rating:not(:checked) > label {
-  float:right;
-  width:1em;
-  padding:0 .1em;
-  overflow:hidden;
-  white-space:nowrap;
-  cursor:pointer;
-  font-size:200%;
-  line-height:1.2;
-  color:#ddd;
+    float: right;
+    width: 1em;
+    padding: 0 .1em;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    font-size: 200%;
+    line-height: 1.2;
+    color: #ddd;
 }
 
 .rating:not(:checked) > label:before {
 }
 
 .rating > input:checked ~ label {
-  color: #ff7700;
+    color: #ff7700;
 }
 
 .rating:not(:checked) > label:hover,
 .rating:not(:checked) > label:hover ~ label {
-  color: gold;
+    color: gold;
 }
 
-.rating> input:checked + label:hover,
-.rating> input:checked + label:hover ~ label,
-.rating> input:checked ~ label:hover,
-.rating> input:checked ~ label:hover ~ label,
-.rating> label:hover ~ input:checked ~ label {
-  color: #ea0;
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: #ea0;
 }
 
 .StudentPage .rating:not(:checked) > label:hover,
 .StudentPage .rating:not(:checked) > label:hover ~ label,
-.StudentPage .rating> input:checked + label:hover,
-.StudentPage .rating> input:checked + label:hover ~ label,
-.StudentPage .rating> input:checked ~ label:hover,
-.StudentPage .rating> input:checked ~ label:hover ~ label,
-.StudentPage .rating> label:hover ~ input:checked ~ label {
-  color: #ddd;
-  cursor: default;
+.StudentPage .rating > input:checked + label:hover,
+.StudentPage .rating > input:checked + label:hover ~ label,
+.StudentPage .rating > input:checked ~ label:hover,
+.StudentPage .rating > input:checked ~ label:hover ~ label,
+.StudentPage .rating > label:hover ~ input:checked ~ label {
+    color: #ddd;
+    cursor: default;
 }
 
 .rating > label:active {
-  position:relative;
-  top:2px;
-  left:2px;
+    position: relative;
+    top: 2px;
+    left: 2px;
 }
 
 .StudentPage .rating > label:active {
-  position:static;
-  top:0px;
-  left:0px;
+    position: static;
+    top: 0px;
+    left: 0px;
 }

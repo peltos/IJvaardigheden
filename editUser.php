@@ -5,11 +5,9 @@
  * @author Pieter Leek <p.d.leek@hva.nl>
  * 
  */
-
-session_start();
 include_once './config/config.php';
 include_once './app/model/database_pdo.php';
-require_once __DIR__.'/app/controller/controller_edituser.php';
+require_once './app/controller/controller_edituser.php';
 
 //kijk met welk request type je te maken hebt
 $method = $_SERVER['REQUEST_METHOD']; 
@@ -31,7 +29,7 @@ switch ($method) {
         if ($controller->writeForm($_POST)) {
             header('Location:admin.php'); 
         } else {
-            require_once __DIR__.'/view/error.php';
+            require_once URL.'/view/error.php';
         }
         break;
 

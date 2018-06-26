@@ -17,7 +17,7 @@
                                 <label for="cname">Klas</label>
                                 <input type="text" class="form-control" id="groupName" name="groupName" placeholder="Geef de klas" autofocus>
                             </div>
-                            <button type="submit" class="btn btn-primary"><i class="fa fa-plus-circle"></i> Toevoegen </button>
+                            <button type="submit" class="btn btn-primary" disabled><i class="fa fa-plus-circle" ></i> Toevoegen </button>
                         </form>
                         <?php
                         //tabel om de klassen weer te geven
@@ -36,7 +36,7 @@
                                             if ($value > null){echo $value['schoolGroup'];}
                                         echo '</td>';
                                         echo '<td>';
-                                            echo '<button type="submit" class="btn btn-danger"><i class="fa fa-trash-o"></i> Verwijderen</button>';
+                                            echo '<button type="submit" class="btn btn-danger" disabled><i class="fa fa-trash-o"></i> Verwijderen</button>';
                                             echo '<div class="infoBadge" > </div>';
                                         echo '</td>';
                                     echo '</tr>';
@@ -61,7 +61,7 @@
 
                 $.ajax({
                       type:"post",
-                      url:"/view/ajax/deleteSG.php",
+                      url:"<?php echo URL ?>/view/ajax/deleteSG.php",
                       data:"checkedName="+checkedName,
                       success:function(data){
                          remove;

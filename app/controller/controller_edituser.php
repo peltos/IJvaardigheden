@@ -13,7 +13,7 @@ class controllerEditUser {
         // print_r($post); // debug
 
         //TODO check POST
-        return $this->ModelEditUser->writePost($post['otherInfo'],$post['schoolgroup']);
+//        return $this->ModelEditUser->writePost($post['otherInfo'],$post['schoolgroup']);
 
     }
     public function index() {

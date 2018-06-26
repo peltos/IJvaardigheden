@@ -6,10 +6,9 @@
  * 
  */
 
-session_start();
 include_once './config/config.php';
 include_once './app/model/database_pdo.php';
-require_once __DIR__.'/app/controller/controller_user.php';
+require_once './app/controller/controller_user.php';
 
 //kijk met welk request type je te maken hebt
 $method = $_SERVER['REQUEST_METHOD'];

@@ -1,4 +1,3 @@
-<?php if (!$_SESSION["roleUser"] >= 1){ header('Location: ../student.php'); } ?>
 <?php $idUser = $_GET['edit']; ?>
 <?php include 'headAdmin.php'; ?>
 <!-- MAIN -->
@@ -54,7 +53,7 @@
                                         <label for="cname">Overig</label>
                                         <textarea class="form-control" id="otherInfo" name="otherInfo"><?php echo $_SESSION["otherInfo" . $idUser] ?></textarea>
                                         <br>
-                                        <button class="btn btn-primary btn-block"  type = "submit">Submit</button>
+                                        <button class="btn btn-primary btn-block"  type = "submit" disabled>Submit</button>
                                         <?php } ?>
                                 </div>
                             </form>
@@ -140,61 +139,5 @@
     <!-- END MAIN CONTENT -->
 </div>
 <!-- END MAIN -->
-<script src="view/vendor/jquery/jquery.min.js"></script>
-        <script>
-            $(document).ready(function(){
-                        $( ".starcheck.input0" ).click(function() {
-                            $(this).parent().parent().parent().parent().addClass("rankNone");
-                            $(this).parent().parent().parent().parent().removeClass("rankBrown");
-                            $(this).parent().parent().parent().parent().removeClass("rankSilver");
-                            $(this).parent().parent().parent().parent().removeClass("rankGold");
-                        });
-                        $( ".starcheck.input1" ).click(function() {
-                            $(this).parent().parent().parent().parent().removeClass("rankNone");
-                            $(this).parent().parent().parent().parent().addClass("rankBrown");
-                            $(this).parent().parent().parent().parent().removeClass("rankSilver");
-                            $(this).parent().parent().parent().parent().removeClass("rankGold");
-                        });
-                        $( ".starcheck.input2" ).click(function() {
-                            $(this).parent().parent().parent().parent().removeClass("rankNone");
-                            $(this).parent().parent().parent().parent().removeClass("rankBrown");
-                            $(this).parent().parent().parent().parent().addClass("rankSilver");
-                            $(this).parent().parent().parent().parent().removeClass("rankGold");
-                        });
-                        $( ".starcheck.input3" ).click(function() {
-                            $(this).parent().parent().parent().parent().removeClass("rankNone");
-                            $(this).parent().parent().parent().parent().removeClass("rankBrown");
-                            $(this).parent().parent().parent().parent().removeClass("rankSilver");
-                            $(this).parent().parent().parent().parent().addClass("rankGold");
-                        });
-                        $(document).on('click', '.starcheck', function () {
-                          
-                            
-                          var checkedEmail = '<?php echo $_SESSION["email" . $idUser]?>';
-                          var checkedId = $(this).parent().attr("name");
-                          
-                          var checkedVal=$(this).val();
-                          var pathInfo=$(this).parents("fieldset").siblings(".infoBadge");
- 
-                          $.ajax({
-                              type:"post",
-                              url:"/view/ajax/process.php",
-                              data:"checkedVal="+checkedVal+"&checkedId="+checkedId+"&checkedEmail="+checkedEmail,
-                              success:function(data){
-                                 pathInfo.html(data);
-                                 pathInfo.removeClass("notificationStyle0");
-                                 pathInfo.removeClass("notificationStyle1");
-                                 pathInfo.removeClass("notificationStyle2");
-                                 pathInfo.removeClass("notificationStyle3");
-                                 pathInfo.addClass("notificationStyle"+checkedVal);
-                                 
-                              }
- 
-                          });
-                          
- 
-                    });
-               });
-            
-        </script>
+
 <?php include 'footer.php'; ?>

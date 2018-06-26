@@ -1,5 +1,5 @@
 <?php
-  mysql_connect("ronpelt.synology.me","root","kGjMtEO06BPiu2u4");
+  mysql_connect(DB_HOST, DB_USERNAME, DB_PASSWORD, DB_NAME);
   mysql_select_db("test");
  
   $checked=$_POST["checked"];
